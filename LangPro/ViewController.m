@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "TestReader.h"
 @interface ViewController ()
 
 @end
@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    TestReader *reader = [[TestReader alloc] init];
+    [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"tc"]];
 }
 
 - (void)didReceiveMemoryWarning

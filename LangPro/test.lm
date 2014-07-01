@@ -1,0 +1,90 @@
+%{
+    #include <stdio.h>
+    #include <ctype.h>
+    #include <string.h>
+    #include "codeNode.h"
+    #include "y.tab.h"
+%}
+
+comment     \/\*([^*]|\n)*\*\/
+digit       [0-9]
+ichar       [A-Z_a-z]
+integer     {digit}+
+newline     \n
+strchar     ([ ~]|\\n)
+identifier  {ichar}([0-9]|{ichar})*
+whitespace  [ \t]+
+float       ([+-]?{digit}+)?\.{digit}*(e?[+-]?{digit}+)?
+chrliteral  '([!*]|\\n)'
+nullstring  \"\"
+escquote    [^"]*\\\"[^"]*
+strliteral  \"[^"]*{escquote}*\"
+%%
+
+{integer}       {
+                    yylval.intValue = atoi(yytext);
+                    printf("int %d\n",yylval.intValue);
+                    return INTEGER;
+                }
+
+"#end"          return END_TERMINAL;
+
+"->"            return *yytext;
+
+{float}         {
+                    yylval.doubleValue = atof(yytext);
+                    printf("dbl %.2lf\n",yylval.doubleValue);
+                    return DOUBLE;
+                }
+
+{strliteral}    {
+                    yylval.tokname = yytext;
+                    printf("str %s\n",yytext);
+                    return STRING;
+                }
+
+{ichar}+        {
+                    yylval.tokname = yytext;
+                    printf("ident %s\n",yytext);
+                    return NAME_TOKEN;
+                }
+
+"<"             return LT;
+
+">"             return MT;
+
+"<="            return LE;
+
+">="            return ME;
+
+"=="            return EQ;
+
+"&&"            return AND;
+
+"||"            return OR;
+
+"-"             return MINUS;
+
+"+"             return PLUS;
+
+"*"             return MULTIPLY;
+
+"/"             return DIVIDE;
+
+[()=,;#]        return *yytext;
+
+[\n]            return NEW_LINE;
+
+{comment}       ;
+
+[ \t]           ;
+
+
+.               return ERROR;
+
+
+%%
+
+int yywrap(void) {
+    return 1;
+}

@@ -1,0 +1,15 @@
+#FiveInARow icon
+/* some comment 234sadf */
+failOn(onMachine(),"we are not on machine")
+
+makeSpin("{5,6,7,8,9};{#icon,#icon,#icon,#icon};{5,6,7,8,9}")
+
+waitFor("spinEnded")->timeout(10)->failSignals("asda","adsad")->onFail("MakeLog")
+
+log("spin ended successfully")
+
+waitFor(popupShowed("5_in_a_row"),10,"5 in a row Popup not showed!")
+
+failOn(user()->balance() < 10000,"balance is not valid")
+
+#end

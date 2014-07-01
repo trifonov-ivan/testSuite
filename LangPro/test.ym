@@ -1,0 +1,119 @@
+%{
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+    #include <stdarg.h>
+    #include "codeNode.h"
+    #include "adapter.h"
+    
+    int yylex(void);
+    void yyerror(char *);
+    void yylog(char *);
+    int ex(nodeType *p);
+    typedef codeNode;
+%}
+
+%union {
+    int intValue;
+    double doubleValue;
+    char *tokname;
+    codeNode *nPtr;
+    codeNode **nodeList;
+};
+
+%token <intValue> INTEGER
+%token <doubleValue> DOUBLE
+%token <tokname> STRING
+
+%token LT MT LE ME EQ AND OR MINUS PLUS MULTIPLY DIVIDE
+
+%type <intValue> sign
+%type <codeNode> param func_call expr math
+%type <nodeList> param_list
+
+%token NEW_LINE END_TERMINAL
+%token ERROR
+%token <tokname> NAME_TOKEN
+
+%left '='
+%%
+
+program:
+    alias module END_TERMINAL
+    ;
+
+module:
+    expr new_line                       {}
+    | module expr new_line              {}
+    ;
+
+expr:
+    NAME_TOKEN '=' func_call            {}
+    | NAME_TOKEN '=' constant           {}
+    | NAME_TOKEN '=' NAME_TOKEN         {}
+    | func_call                         {}
+    ;
+
+alias:
+    '#' NAME_TOKEN param_list new_line  {}
+    ;
+
+func_call:
+    NAME_TOKEN '(' param_list ')'       {}
+    | '(' func_call ')'                 {}
+    | func_call '->' func_call          {}
+    ;
+
+param_list: /*May be null param list */
+    | math                              {}
+    | param_list ',' math               {}
+    ;
+
+math:
+    param                               {}
+    | '(' param ')'                     {}
+    | param sign param                  {}
+    ;
+
+param:
+    constant                            {}
+    | func_call                         {}
+    | NAME_TOKEN                        {}
+    ;
+
+constant:
+    INTEGER                             {}
+    | DOUBLE                            {}
+    | STRING                            {}
+    ;
+
+sign:
+    LT                                  {$$ = signLT;}
+    | MT                                {$$ = signMT;}
+    | LE                                {$$ = signLE;}
+    | ME                                {$$ = signME;}
+    | EQ                                {$$ = signEQ;}
+    | AND                               {$$ = signAND;}
+    | OR                                {$$ = signOR;}
+    | MINUS                             {$$ = signMINUS;}
+    | PLUS                              {$$ = signPLUS;}
+    | MULTIPLY                          {$$ = signMULTIPLY;}
+    | DIVIDE                            {$$ = signDIVIDE;}
+    ;
+
+new_line:
+    NEW_LINE
+    | new_line NEW_LINE
+    ;
+%%
+
+void yylog(char *s) {
+    fprintf(stderr, "LOG: %s\n", s);
+}
+
+
+void yyerror(char *s) {
+    fprintf(stderr, "ERROR: %s\n", s);
+}
+
+

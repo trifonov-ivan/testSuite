@@ -21,6 +21,12 @@
 		209BA03D195AC46E00B304DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209BA01F195AC46E00B304DE /* UIKit.framework */; };
 		209BA045195AC46E00B304DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209BA043195AC46E00B304DE /* InfoPlist.strings */; };
 		209BA047195AC46E00B304DE /* LangProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA046195AC46E00B304DE /* LangProTests.m */; };
+		209BA051195AC75300B304DE /* test.ym in Sources */ = {isa = PBXBuildFile; fileRef = 209BA050195AC75300B304DE /* test.ym */; };
+		209BA053195AC75B00B304DE /* test.lm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA052195AC75B00B304DE /* test.lm */; };
+		209BA056195C1B5B00B304DE /* executor.c in Sources */ = {isa = PBXBuildFile; fileRef = 209BA055195C1B5B00B304DE /* executor.c */; };
+		209BA0CC1961400C00B304DE /* TestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA0CB1961400C00B304DE /* TestReader.m */; };
+		209BA0CE196144E000B304DE /* example.tc in Resources */ = {isa = PBXBuildFile; fileRef = 209BA0CD196144E000B304DE /* example.tc */; };
+		209BA18B1962AC4B00B304DE /* adapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18A1962AC4B00B304DE /* adapter.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,15 @@
 		209BA042195AC46E00B304DE /* LangProTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LangProTests-Info.plist"; sourceTree = "<group>"; };
 		209BA044195AC46E00B304DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		209BA046195AC46E00B304DE /* LangProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LangProTests.m; sourceTree = "<group>"; };
+		209BA050195AC75300B304DE /* test.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = test.ym; sourceTree = "<group>"; };
+		209BA052195AC75B00B304DE /* test.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = test.lm; sourceTree = "<group>"; };
+		209BA054195C193700B304DE /* codeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codeNode.h; sourceTree = "<group>"; };
+		209BA055195C1B5B00B304DE /* executor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = executor.c; sourceTree = "<group>"; };
+		209BA0CA1961400C00B304DE /* TestReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestReader.h; sourceTree = "<group>"; };
+		209BA0CB1961400C00B304DE /* TestReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestReader.m; sourceTree = "<group>"; };
+		209BA0CD196144E000B304DE /* example.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.tc; sourceTree = "<group>"; };
+		209BA1891962AC4000B304DE /* adapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = adapter.h; sourceTree = "<group>"; };
+		209BA18A1962AC4B00B304DE /* adapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adapter.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +132,14 @@
 				209BA02D195AC46E00B304DE /* Main.storyboard */,
 				209BA030195AC46E00B304DE /* ViewController.h */,
 				209BA031195AC46E00B304DE /* ViewController.m */,
+				209BA050195AC75300B304DE /* test.ym */,
+				209BA052195AC75B00B304DE /* test.lm */,
+				209BA0CA1961400C00B304DE /* TestReader.h */,
+				209BA0CB1961400C00B304DE /* TestReader.m */,
+				209BA1891962AC4000B304DE /* adapter.h */,
+				209BA18A1962AC4B00B304DE /* adapter.mm */,
+				209BA054195C193700B304DE /* codeNode.h */,
+				209BA055195C1B5B00B304DE /* executor.c */,
 				209BA033195AC46E00B304DE /* Images.xcassets */,
 				209BA022195AC46E00B304DE /* Supporting Files */,
 			);
@@ -130,6 +153,7 @@
 				209BA024195AC46E00B304DE /* InfoPlist.strings */,
 				209BA027195AC46E00B304DE /* main.m */,
 				209BA029195AC46E00B304DE /* LangPro-Prefix.pch */,
+				209BA0CD196144E000B304DE /* example.tc */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,6 +255,7 @@
 				209BA034195AC46E00B304DE /* Images.xcassets in Resources */,
 				209BA026195AC46E00B304DE /* InfoPlist.strings in Resources */,
 				209BA02F195AC46E00B304DE /* Main.storyboard in Resources */,
+				209BA0CE196144E000B304DE /* example.tc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209BA056195C1B5B00B304DE /* executor.c in Sources */,
+				209BA053195AC75B00B304DE /* test.lm in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
+				209BA18B1962AC4B00B304DE /* adapter.mm in Sources */,
+				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
 				209BA02C195AC46E00B304DE /* AppDelegate.m in Sources */,
 				209BA028195AC46E00B304DE /* main.m in Sources */,
+				209BA051195AC75300B304DE /* test.ym in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +411,8 @@
 				INFOPLIST_FILE = "LangPro/LangPro-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+				YACCFLAGS = "-v -d -t";
+				YACC_GENERATE_DEBUGGING_DIRECTIVES = NO;
 			};
 			name = Debug;
 		};
@@ -394,6 +426,8 @@
 				INFOPLIST_FILE = "LangPro/LangPro-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+				YACCFLAGS = "-v -d -t";
+				YACC_GENERATE_DEBUGGING_DIRECTIVES = NO;
 			};
 			name = Release;
 		};
@@ -456,6 +490,7 @@
 				209BA04C195AC46E00B304DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		209BA04D195AC46E00B304DE /* Build configuration list for PBXNativeTarget "LangProTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +499,7 @@
 				209BA04F195AC46E00B304DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
