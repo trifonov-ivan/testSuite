@@ -76,8 +76,50 @@ codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand)
 
 codeNode* codeNodeWithVariableCall(char *name)
 {
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
     //TODO
-    return NULL;
+    return node;
+}
+
+codeNode* codeNodeSetWithExpression(char *name, codeNode* value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    //TODO
+    return node;
+}
+
+codeNode* codeNodeSetWithVariable(char *name, char *valueName)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    //TODO
+    return node;
+}
+
+codeNode* codeNodeForIntConstant(int value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constInt;
+    node->con.intVal = value;
+    return node;
+}
+
+codeNode* codeNodeForDoubleConstant(double value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constDouble;
+    node->con.dblVal = value;
+    return node;
+}
+
+codeNode* codeNodeForStringConstant(char* value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constString;
+    node->con.stringVal = value;
+    return node;
 }
 
 /*

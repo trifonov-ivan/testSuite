@@ -18,4 +18,8 @@ codeNode* functionCall(codeNodeList *params, char *name);
 codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand);
 codeNode* codeNodeWithVariableCall(char *name);
 
+codeNode* codeNodeForIntConstant(int value);
+codeNode* codeNodeForDoubleConstant(double value);
+codeNode* codeNodeForStringConstant(char* value);
+
 #endif

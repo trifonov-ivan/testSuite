@@ -46,9 +46,8 @@ module:
     ;
 
 expr:
-    NAME_TOKEN '=' func_call            {}
-    | NAME_TOKEN '=' constant           {}
-    | NAME_TOKEN '=' NAME_TOKEN         {}
+    NAME_TOKEN '=' math                 {$$ = codeNodeSetWithExpression($1, $3);}
+    | NAME_TOKEN '=' NAME_TOKEN         {$$ = codeNodeSetWithVariable($1, $3);}
     | func_call                         {$$ = $1;}
     ;
 
@@ -80,9 +79,9 @@ param:
     ;
 
 constant:
-    INTEGER                             {}
-    | DOUBLE                            {}
-    | STRING                            {}
+    INTEGER                             {$$ = codeNodeForIntConstant($1);}
+    | DOUBLE                            {$$ = codeNodeForDoubleConstant($1);}
+    | STRING                            {$$ = codeNodeForStringConstant($1);}
     ;
 
 sign:
