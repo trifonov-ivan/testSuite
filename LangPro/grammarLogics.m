@@ -1,5 +1,5 @@
 //
-//  adapter.mm
+//  grammarLogics.m
 //  LangPro
 //
 //  Created by Ivan Trifonov on 01.07.14.
@@ -10,28 +10,19 @@
 #include "codeNode.h"
 #include "y.tab.h"
 #include <stdlib.h>
-#include "adapter.h"
+#include "grammarLogics.h"
+#include "testLangObjcBridge.h"
 
 void logerror(char *);
 
-int registerVariable(char *name)
-{
-    return 0;
-}
-
 void registerTestCase(char *name, codeNodeList *paramList)
 {
-    
+    bridgeRegisterTestCase(name,paramList);
 }
 
 void finalizeTestCase(codeNodeList *linesList)
 {
-    
-}
-
-void decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode)
-{
-    
+    bridgeFinalizeTestCase(linesList);
 }
 
 codeNodeList* listWithParam(codeNode *param)
@@ -62,6 +53,12 @@ codeNode* functionCall(codeNodeList *params, char *name)
     return node;
 }
 
+codeNode* decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode)
+{
+    //TODO
+    return source;
+}
+
 codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand)
 {
     codeNode *node = (codeNode*)malloc(sizeof(codeNode));
@@ -77,22 +74,23 @@ codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand)
 codeNode* codeNodeWithVariableCall(char *name)
 {
     codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    //TODO
+    node->type = typeVariable;
+    /* using bridge for lookup value id */
+    node->var.i = bridgeLookupForVariableName(name);
     return node;
 }
 
 codeNode* codeNodeSetWithExpression(char *name, codeNode* value)
 {
-    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    //TODO
-    return node;
+    codeNode *first = codeNodeWithVariableCall(name);
+    return mathCall(signSET, first, value);
 }
 
 codeNode* codeNodeSetWithVariable(char *name, char *valueName)
 {
-    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    //TODO
-    return node;
+    codeNode *first = codeNodeWithVariableCall(name);
+    codeNode *second = codeNodeWithVariableCall(valueName);
+    return mathCall(signSET, first, second);
 }
 
 codeNode* codeNodeForIntConstant(int value)

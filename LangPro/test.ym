@@ -4,7 +4,7 @@
     #include <stdlib.h>
     #include <stdarg.h>
     #include "codeNode.h"
-    #include "adapter.h"
+    #include "grammarLogics.h"
     
     int yylex(void);
     void yyerror(char *);
@@ -58,7 +58,7 @@ alias:
 func_call:
     NAME_TOKEN '(' param_list ')'       {$$ = functionCall($3,$1);}
     | '(' func_call ')'                 {$$ = $2;}
-    | func_call '->' func_call          {}
+    | func_call '->' func_call          {$$ = decorateCodeNodeWithCodeNode($1,$3);}
     ;
 
 param_list: /*May be null param list */ {$$ = NULL;}

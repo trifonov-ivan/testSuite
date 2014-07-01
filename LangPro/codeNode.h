@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ivan Trifonov. All rights reserved.
 //
 
-typedef enum { typeFunc, typeConst } nodeEnum;
+typedef enum { typeFunc, typeConst, typeVariable } nodeEnum;
 
 typedef enum { constInt, constDouble, constString} constType;
 
@@ -16,16 +16,6 @@ typedef enum { signLT, signMT, signLE, signME, signEQ, signAND, signOR, signMINU
 typedef struct {
     int i;                      /* subscript to sym array */
 } idNodeType;
-
-typedef struct nodeTypeTag {
-    nodeEnum type;              /* type of node */
-    
-    union {
-//        conNodeType con;        /* constants */
-        idNodeType id;          /* identifiers */
-//        oprNodeType opr;        /* operators */
-    };
-} nodeType;
 
 /* constants */
 typedef struct {
@@ -50,6 +40,7 @@ typedef struct codeNodeTag{
     union {
         oprNodeType opr;
         conNodeType con;
+        idNodeType  var;
     };
 } codeNode;
 
