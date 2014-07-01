@@ -28,7 +28,7 @@
 %type <nPtr> constant
 %type <nodeList> module
 
-%token ERROR ARROW
+%token ERROR ARROW END_TERMINAL
 %token <tokname> NAME_TOKEN
 
 %left '='
@@ -36,11 +36,41 @@
 %%
 
 program:
-alias module           {/*finalizeTestCase($2);*/}
+alias module END_TERMINAL          {/*finalizeTestCase($2);*/}
 ;
 
 alias:
 '#' NAME_TOKEN {/*registerTestCaseHierarchy($2,$3);*/}
+;
+
+module:
+case_call_list
+;
+
+
+expr:
+case_call
+| expr ARROW case_call
+;
+
+case_call_list:
+|case_call_list expr
+;
+
+case_call:
+NAME_TOKEN '(' param_list ')'
+| '(' options ')' '{' case_call_list '}'
+;
+
+options:
+;
+
+param_list:
+| param_list param
+;
+
+param:
+constant
 ;
 
 constant:
@@ -49,9 +79,6 @@ INTEGER                             {$$ = codeNodeForIntConstant($1);}
 | STRING                            {$$ = codeNodeForStringConstant($1);}
 ;
 
-
-module:
-;
 %%
 
 void thlog(char *s) {

@@ -19,6 +19,7 @@
     [super viewDidLoad];
     TestReader *reader = [[TestReader alloc] init];
     [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"tc"]];
+    [reader processTestHierarchyFromFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"th"]];
 }
 
 - (void)didReceiveMemoryWarning

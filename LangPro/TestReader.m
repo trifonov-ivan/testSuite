@@ -11,9 +11,17 @@
 extern int tcparse();
 extern int tcdebug;
 extern char *yytext;
-typedef struct tc_buffer_state *YY_BUFFER_STATE;
-void tc_switch_to_buffer(YY_BUFFER_STATE);
-YY_BUFFER_STATE tc_scan_string (const char *);
+typedef struct tc_buffer_state *TC_BUFFER_STATE;
+void tc_switch_to_buffer(TC_BUFFER_STATE);
+TC_BUFFER_STATE tc_scan_string (const char *);
+
+
+extern int thparse();
+extern int thdebug;
+typedef struct th_buffer_state *TH_BUFFER_STATE;
+void th_switch_to_buffer(TH_BUFFER_STATE);
+TH_BUFFER_STATE th_scan_string (const char *);
+
 
 static TestReader *reader = nil;
 
@@ -37,5 +45,17 @@ static TestReader *reader = nil;
         tcparse();
     }
 }
+
+-(void) processTestHierarchyFromFile:(NSString*) filePath
+{
+    NSString *str = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    if (str)
+    {
+        th_switch_to_buffer(th_scan_string([str UTF8String]));
+        thdebug = 1;
+        thparse();
+    }
+}
+
 
 @end

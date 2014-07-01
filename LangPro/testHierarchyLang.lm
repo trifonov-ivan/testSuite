@@ -29,6 +29,8 @@ strliteral  \"[^"]*{escquote}*\"
 
 "->"            return ARROW;
 
+"#end"          return END_TERMINAL;
+
 {float}         {
     thlval.doubleValue = atof(yytext);
     return DOUBLE;

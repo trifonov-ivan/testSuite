@@ -13,5 +13,6 @@
 +(TestReader*)sharedReader;
 
 -(void) processTestCaseFromFile:(NSString*) filePath;
+-(void) processTestHierarchyFromFile:(NSString*) filePath;
 
 @end
