@@ -10,7 +10,6 @@
     void yyerror(char *);
     void yylog(char *);
     int ex(nodeType *p);
-    typedef codeNode;
 %}
 
 %union {
@@ -18,7 +17,7 @@
     double doubleValue;
     char *tokname;
     codeNode *nPtr;
-    codeNode **nodeList;
+    codeNodeList *nodeList;
 };
 
 %token <intValue> INTEGER
@@ -28,7 +27,7 @@
 %token LT MT LE ME EQ AND OR MINUS PLUS MULTIPLY DIVIDE
 
 %type <intValue> sign
-%type <codeNode> param func_call expr math
+%type <nPtr> param func_call expr math
 %type <nodeList> param_list
 
 %token NEW_LINE END_TERMINAL
@@ -70,14 +69,14 @@ param_list: /*May be null param list */
     ;
 
 math:
-    param                               {}
-    | '(' param ')'                     {}
+    param                               {$$ = $1;}
+    | '(' param ')'                     {$$ = $2;}
     | param sign param                  {}
     ;
 
 param:
     constant                            {}
-    | func_call                         {}
+    | func_call                         {$$ = $1;}
     | NAME_TOKEN                        {}
     ;
 
