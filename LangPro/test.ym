@@ -9,7 +9,6 @@
     int yylex(void);
     void yyerror(char *);
     void yylog(char *);
-    int ex(nodeType *p);
 %}
 
 %union {
@@ -27,8 +26,8 @@
 %token LT MT LE ME EQ AND OR MINUS PLUS MULTIPLY DIVIDE
 
 %type <intValue> sign
-%type <nPtr> param func_call expr math
-%type <nodeList> param_list
+%type <nPtr> param func_call expr math constant
+%type <nodeList> param_list module
 
 %token NEW_LINE END_TERMINAL
 %token ERROR
@@ -38,46 +37,46 @@
 %%
 
 program:
-    alias module END_TERMINAL
+    alias module END_TERMINAL           {finalizeTestCase($2);}
     ;
 
 module:
-    expr new_line                       {}
-    | module expr new_line              {}
+    expr new_line                       {$$ = listWithParam($1);}
+    | module expr new_line              {$$ = addNodeToList($1,$2);}
     ;
 
 expr:
     NAME_TOKEN '=' func_call            {}
     | NAME_TOKEN '=' constant           {}
     | NAME_TOKEN '=' NAME_TOKEN         {}
-    | func_call                         {}
+    | func_call                         {$$ = $1;}
     ;
 
 alias:
-    '#' NAME_TOKEN param_list new_line  {}
+    '#' NAME_TOKEN param_list new_line  {registerTestCase($2,$3);}
     ;
 
 func_call:
-    NAME_TOKEN '(' param_list ')'       {}
-    | '(' func_call ')'                 {}
+    NAME_TOKEN '(' param_list ')'       {$$ = functionCall($3,$1);}
+    | '(' func_call ')'                 {$$ = $2;}
     | func_call '->' func_call          {}
     ;
 
-param_list: /*May be null param list */
-    | math                              {}
-    | param_list ',' math               {}
+param_list: /*May be null param list */ {$$ = NULL;}
+    | math                              {$$ = listWithParam($1);}
+    | param_list ',' math               {$$ = addNodeToList($1,$3);}
     ;
 
 math:
     param                               {$$ = $1;}
     | '(' param ')'                     {$$ = $2;}
-    | param sign param                  {}
+    | param sign param                  {$$ = mathCall($2,$1,$3);}
     ;
 
 param:
-    constant                            {}
+    constant                            {$$ = $1;}
     | func_call                         {$$ = $1;}
-    | NAME_TOKEN                        {}
+    | NAME_TOKEN                        {$$ = codeNodeWithVariableCall($1);}
     ;
 
 constant:

@@ -26,7 +26,7 @@
 		209BA056195C1B5B00B304DE /* executor.c in Sources */ = {isa = PBXBuildFile; fileRef = 209BA055195C1B5B00B304DE /* executor.c */; };
 		209BA0CC1961400C00B304DE /* TestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA0CB1961400C00B304DE /* TestReader.m */; };
 		209BA0CE196144E000B304DE /* example.tc in Resources */ = {isa = PBXBuildFile; fileRef = 209BA0CD196144E000B304DE /* example.tc */; };
-		209BA18B1962AC4B00B304DE /* adapter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18A1962AC4B00B304DE /* adapter.mm */; };
+		209BA18B1962AC4B00B304DE /* adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18A1962AC4B00B304DE /* adapter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		209BA0CB1961400C00B304DE /* TestReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestReader.m; sourceTree = "<group>"; };
 		209BA0CD196144E000B304DE /* example.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.tc; sourceTree = "<group>"; };
 		209BA1891962AC4000B304DE /* adapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = adapter.h; sourceTree = "<group>"; };
-		209BA18A1962AC4B00B304DE /* adapter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = adapter.mm; sourceTree = "<group>"; };
+		209BA18A1962AC4B00B304DE /* adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = adapter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 				209BA0CA1961400C00B304DE /* TestReader.h */,
 				209BA0CB1961400C00B304DE /* TestReader.m */,
 				209BA1891962AC4000B304DE /* adapter.h */,
-				209BA18A1962AC4B00B304DE /* adapter.mm */,
+				209BA18A1962AC4B00B304DE /* adapter.m */,
 				209BA054195C193700B304DE /* codeNode.h */,
 				209BA055195C1B5B00B304DE /* executor.c */,
 				209BA033195AC46E00B304DE /* Images.xcassets */,
@@ -277,7 +277,7 @@
 				209BA056195C1B5B00B304DE /* executor.c in Sources */,
 				209BA053195AC75B00B304DE /* test.lm in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
-				209BA18B1962AC4B00B304DE /* adapter.mm in Sources */,
+				209BA18B1962AC4B00B304DE /* adapter.m in Sources */,
 				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
 				209BA02C195AC46E00B304DE /* AppDelegate.m in Sources */,
 				209BA028195AC46E00B304DE /* main.m in Sources */,

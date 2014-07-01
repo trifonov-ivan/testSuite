@@ -9,11 +9,13 @@
 #ifndef LangPro_adapter_h
 #define LangPro_adapter_h
 
-nodeType *opr(int oper, int nops, ...);
-nodeType *con(int value);
-void freeNode(nodeType *p);
+void registerTestCase(char *name, codeNodeList *paramList);
+void finalizeTestCase(codeNodeList *linesList);
 
-int registerVariable(char *name);
-void registerTestCase(char *name);
+codeNodeList* listWithParam(codeNode *param);
+codeNodeList* addNodeToList(codeNodeList *listcode, codeNode *param);
+codeNode* functionCall(codeNodeList *params, char *name);
+codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand);
+codeNode* codeNodeWithVariableCall(char *name);
 
 #endif

@@ -13,15 +13,15 @@
 int ex(nodeType* node){
     if (!node) return 0;
     switch (node->type) {
-        case typeCon:       return node->con.value;
-        case typeOpr:
-            switch (node->opr.oper) {
+//        case typeCon:       return node->con.value;
+//        case typeOpr:
+//            switch (node->opr.oper) {
 //                case PRINT:
 //                    printf("%d\n", ex(node->opr.op[0]));
 //                    return 0;
-                default: return 0;
-            }
-            break;
+//                default: return 0;
+//            }
+//            break;
             
         default:
             return 0;
