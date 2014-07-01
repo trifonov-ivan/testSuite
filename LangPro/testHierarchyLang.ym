@@ -1,0 +1,64 @@
+%{
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+    #include <stdarg.h>
+    #include "codeNode.h"
+    #include "thlGrammarLogics.h"
+    #include "tclGrammarLogics.h"
+    
+    int thlex(void);
+    void therror(char *);
+    void thlog(char *);
+%}
+%name-prefix = "th";
+
+%union {
+    int intValue;
+    double doubleValue;
+    char *tokname;
+    codeNode *nPtr;
+    codeNodeList *nodeList;
+};
+
+%token <intValue> INTEGER
+%token <doubleValue> DOUBLE
+%token <tokname> STRING
+
+%type <nPtr> constant
+%type <nodeList> module
+
+%token ERROR ARROW
+%token <tokname> NAME_TOKEN
+
+%left '='
+
+%%
+
+program:
+alias module           {/*finalizeTestCase($2);*/}
+;
+
+alias:
+'#' NAME_TOKEN {/*registerTestCaseHierarchy($2,$3);*/}
+;
+
+constant:
+INTEGER                             {$$ = codeNodeForIntConstant($1);}
+| DOUBLE                            {$$ = codeNodeForDoubleConstant($1);}
+| STRING                            {$$ = codeNodeForStringConstant($1);}
+;
+
+
+module:
+;
+%%
+
+void thlog(char *s) {
+    fprintf(stderr, "LOG: %s\n", s);
+}
+
+
+void therror(char *s) {
+    fprintf(stderr, "ERROR: %s\n", s);
+}

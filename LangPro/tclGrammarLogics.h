@@ -1,13 +1,13 @@
 //
-//  grammarLogics.h
+//  tclGrammarLogics.h
 //  LangPro
 //
 //  Created by Ivan Trifonov on 01.07.14.
 //  Copyright (c) 2014 Ivan Trifonov. All rights reserved.
 //
 
-#ifndef LangPro_grammarLogics_h
-#define LangPro_grammarLogics_h
+#ifndef LangPro_tclGrammarLogics_h
+#define LangPro_tclGrammarLogics_h
 
 void registerTestCase(char *name, codeNodeList *paramList);
 void finalizeTestCase(codeNodeList *linesList);

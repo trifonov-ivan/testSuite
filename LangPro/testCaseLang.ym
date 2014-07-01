@@ -4,12 +4,14 @@
     #include <stdlib.h>
     #include <stdarg.h>
     #include "codeNode.h"
-    #include "grammarLogics.h"
+    #include "tclGrammarLogics.h"
     
-    int yylex(void);
-    void yyerror(char *);
-    void yylog(char *);
+    int tclex(void);
+    void tcerror(char *);
+    void tclog(char *);
 %}
+
+%name-prefix = "tc";
 
 %union {
     int intValue;
@@ -104,12 +106,12 @@ new_line:
     ;
 %%
 
-void yylog(char *s) {
+void tclog(char *s) {
     fprintf(stderr, "LOG: %s\n", s);
 }
 
 
-void yyerror(char *s) {
+void tcerror(char *s) {
     fprintf(stderr, "ERROR: %s\n", s);
 }
 

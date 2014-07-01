@@ -1,5 +1,5 @@
 //
-//  testLangObjcBridge.h
+//  tclObjcBridge.h
 //  LangPro
 //
 //  Created by Ivan Trifonov on 01.07.14.

@@ -8,12 +8,12 @@
 
 #import "TestReader.h"
 
-extern int yyparse();
-extern char * yytext;
-extern int yydebug;
-typedef struct yy_buffer_state *YY_BUFFER_STATE;
-void yy_switch_to_buffer(YY_BUFFER_STATE);
-YY_BUFFER_STATE yy_scan_string (const char *);
+extern int tcparse();
+extern int tcdebug;
+extern char *yytext;
+typedef struct tc_buffer_state *YY_BUFFER_STATE;
+void tc_switch_to_buffer(YY_BUFFER_STATE);
+YY_BUFFER_STATE tc_scan_string (const char *);
 
 static TestReader *reader = nil;
 
@@ -32,9 +32,9 @@ static TestReader *reader = nil;
     NSString *str = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
     if (str)
     {
-        yy_switch_to_buffer(yy_scan_string([str UTF8String]));
-        yydebug = 1;
-        yyparse();
+        tc_switch_to_buffer(tc_scan_string([str UTF8String]));
+        tcdebug = 1;
+        tcparse();
     }
 }
 

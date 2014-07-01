@@ -1,0 +1,15 @@
+#TestFlow
+
+fastLogin()
+    ->openMachine(293)
+    ->(){
+        five_in_a_row(1)
+            ->shareOnFiveInARow()
+            ->(){
+                someTest()
+                someAnotherTest()
+            }
+        secondTest()
+        thirdTest()
+            ->fourthTest()
+    }

@@ -1,5 +1,5 @@
 //
-//  grammarLogics.m
+//  tclGrammarLogics.m
 //  LangPro
 //
 //  Created by Ivan Trifonov on 01.07.14.
@@ -8,10 +8,10 @@
 
 #include <stdio.h>
 #include "codeNode.h"
-#include "y.tab.h"
+#include "testCaseLang.tab.h"
 #include <stdlib.h>
-#include "grammarLogics.h"
-#include "testLangObjcBridge.h"
+#include "tclGrammarLogics.h"
+#include "tclObjcBridge.h"
 
 void logerror(char *);
 

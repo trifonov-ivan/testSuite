@@ -21,12 +21,16 @@
 		209BA03D195AC46E00B304DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209BA01F195AC46E00B304DE /* UIKit.framework */; };
 		209BA045195AC46E00B304DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 209BA043195AC46E00B304DE /* InfoPlist.strings */; };
 		209BA047195AC46E00B304DE /* LangProTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA046195AC46E00B304DE /* LangProTests.m */; };
-		209BA051195AC75300B304DE /* test.ym in Sources */ = {isa = PBXBuildFile; fileRef = 209BA050195AC75300B304DE /* test.ym */; };
-		209BA053195AC75B00B304DE /* test.lm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA052195AC75B00B304DE /* test.lm */; };
+		209BA051195AC75300B304DE /* testCaseLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 209BA050195AC75300B304DE /* testCaseLang.ym */; settings = {COMPILER_FLAGS = "-b tcl"; }; };
+		209BA053195AC75B00B304DE /* testCaseLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA052195AC75B00B304DE /* testCaseLang.lm */; };
 		209BA0CC1961400C00B304DE /* TestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA0CB1961400C00B304DE /* TestReader.m */; };
 		209BA0CE196144E000B304DE /* example.tc in Resources */ = {isa = PBXBuildFile; fileRef = 209BA0CD196144E000B304DE /* example.tc */; };
-		209BA18B1962AC4B00B304DE /* grammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18A1962AC4B00B304DE /* grammarLogics.m */; };
-		209BA18D1962F3E700B304DE /* testLangObjcBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18C1962F3E700B304DE /* testLangObjcBridge.m */; };
+		209BA18B1962AC4B00B304DE /* tclGrammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18A1962AC4B00B304DE /* tclGrammarLogics.m */; };
+		209BA18D1962F3E700B304DE /* tclObjcBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 209BA18C1962F3E700B304DE /* tclObjcBridge.m */; };
+		209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 209BA191196334CE00B304DE /* testHierarchyLang.ym */; settings = {COMPILER_FLAGS = "-b thl"; }; };
+		209BA194196334F000B304DE /* testHierarchyLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 209BA193196334F000B304DE /* testHierarchyLang.lm */; };
+		209BA1971963351800B304DE /* thlGrammarLogics.c in Sources */ = {isa = PBXBuildFile; fileRef = 209BA1961963351800B304DE /* thlGrammarLogics.c */; };
+		209BA1991963365700B304DE /* example.th in Resources */ = {isa = PBXBuildFile; fileRef = 209BA1981963365700B304DE /* example.th */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,16 +63,21 @@
 		209BA042195AC46E00B304DE /* LangProTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LangProTests-Info.plist"; sourceTree = "<group>"; };
 		209BA044195AC46E00B304DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		209BA046195AC46E00B304DE /* LangProTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LangProTests.m; sourceTree = "<group>"; };
-		209BA050195AC75300B304DE /* test.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = test.ym; sourceTree = "<group>"; };
-		209BA052195AC75B00B304DE /* test.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = test.lm; sourceTree = "<group>"; };
+		209BA050195AC75300B304DE /* testCaseLang.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = testCaseLang.ym; sourceTree = "<group>"; };
+		209BA052195AC75B00B304DE /* testCaseLang.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = testCaseLang.lm; sourceTree = "<group>"; };
 		209BA054195C193700B304DE /* codeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codeNode.h; sourceTree = "<group>"; };
 		209BA0CA1961400C00B304DE /* TestReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestReader.h; sourceTree = "<group>"; };
 		209BA0CB1961400C00B304DE /* TestReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestReader.m; sourceTree = "<group>"; };
 		209BA0CD196144E000B304DE /* example.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.tc; sourceTree = "<group>"; };
-		209BA1891962AC4000B304DE /* grammarLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grammarLogics.h; sourceTree = "<group>"; };
-		209BA18A1962AC4B00B304DE /* grammarLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = grammarLogics.m; sourceTree = "<group>"; };
-		209BA18C1962F3E700B304DE /* testLangObjcBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testLangObjcBridge.m; sourceTree = "<group>"; };
-		209BA18E1962F3EE00B304DE /* testLangObjcBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testLangObjcBridge.h; sourceTree = "<group>"; };
+		209BA1891962AC4000B304DE /* tclGrammarLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tclGrammarLogics.h; sourceTree = "<group>"; };
+		209BA18A1962AC4B00B304DE /* tclGrammarLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tclGrammarLogics.m; sourceTree = "<group>"; };
+		209BA18C1962F3E700B304DE /* tclObjcBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tclObjcBridge.m; sourceTree = "<group>"; };
+		209BA18E1962F3EE00B304DE /* tclObjcBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tclObjcBridge.h; sourceTree = "<group>"; };
+		209BA191196334CE00B304DE /* testHierarchyLang.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = testHierarchyLang.ym; sourceTree = "<group>"; };
+		209BA193196334F000B304DE /* testHierarchyLang.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = testHierarchyLang.lm; sourceTree = "<group>"; };
+		209BA1951963350E00B304DE /* thlGrammarLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thlGrammarLogics.h; sourceTree = "<group>"; };
+		209BA1961963351800B304DE /* thlGrammarLogics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thlGrammarLogics.c; sourceTree = "<group>"; };
+		209BA1981963365700B304DE /* example.th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.th; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,20 +137,15 @@
 		209BA021195AC46E00B304DE /* LangPro */ = {
 			isa = PBXGroup;
 			children = (
+				209BA190196334A400B304DE /* testHierarchyLang */,
+				209BA18F1963349500B304DE /* testCaseLang */,
 				209BA02A195AC46E00B304DE /* AppDelegate.h */,
 				209BA02B195AC46E00B304DE /* AppDelegate.m */,
 				209BA02D195AC46E00B304DE /* Main.storyboard */,
 				209BA030195AC46E00B304DE /* ViewController.h */,
 				209BA031195AC46E00B304DE /* ViewController.m */,
-				209BA050195AC75300B304DE /* test.ym */,
-				209BA052195AC75B00B304DE /* test.lm */,
 				209BA0CA1961400C00B304DE /* TestReader.h */,
 				209BA0CB1961400C00B304DE /* TestReader.m */,
-				209BA1891962AC4000B304DE /* grammarLogics.h */,
-				209BA18A1962AC4B00B304DE /* grammarLogics.m */,
-				209BA18E1962F3EE00B304DE /* testLangObjcBridge.h */,
-				209BA18C1962F3E700B304DE /* testLangObjcBridge.m */,
-				209BA054195C193700B304DE /* codeNode.h */,
 				209BA033195AC46E00B304DE /* Images.xcassets */,
 				209BA022195AC46E00B304DE /* Supporting Files */,
 			);
@@ -156,6 +160,7 @@
 				209BA027195AC46E00B304DE /* main.m */,
 				209BA029195AC46E00B304DE /* LangPro-Prefix.pch */,
 				209BA0CD196144E000B304DE /* example.tc */,
+				209BA1981963365700B304DE /* example.th */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,6 +181,31 @@
 				209BA043195AC46E00B304DE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		209BA18F1963349500B304DE /* testCaseLang */ = {
+			isa = PBXGroup;
+			children = (
+				209BA050195AC75300B304DE /* testCaseLang.ym */,
+				209BA052195AC75B00B304DE /* testCaseLang.lm */,
+				209BA1891962AC4000B304DE /* tclGrammarLogics.h */,
+				209BA18A1962AC4B00B304DE /* tclGrammarLogics.m */,
+				209BA18E1962F3EE00B304DE /* tclObjcBridge.h */,
+				209BA18C1962F3E700B304DE /* tclObjcBridge.m */,
+				209BA054195C193700B304DE /* codeNode.h */,
+			);
+			name = testCaseLang;
+			sourceTree = "<group>";
+		};
+		209BA190196334A400B304DE /* testHierarchyLang */ = {
+			isa = PBXGroup;
+			children = (
+				209BA191196334CE00B304DE /* testHierarchyLang.ym */,
+				209BA193196334F000B304DE /* testHierarchyLang.lm */,
+				209BA1951963350E00B304DE /* thlGrammarLogics.h */,
+				209BA1961963351800B304DE /* thlGrammarLogics.c */,
+			);
+			name = testHierarchyLang;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +286,7 @@
 			files = (
 				209BA034195AC46E00B304DE /* Images.xcassets in Resources */,
 				209BA026195AC46E00B304DE /* InfoPlist.strings in Resources */,
+				209BA1991963365700B304DE /* example.th in Resources */,
 				209BA02F195AC46E00B304DE /* Main.storyboard in Resources */,
 				209BA0CE196144E000B304DE /* example.tc in Resources */,
 			);
@@ -276,14 +307,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				209BA053195AC75B00B304DE /* test.lm in Sources */,
-				209BA18D1962F3E700B304DE /* testLangObjcBridge.m in Sources */,
+				209BA053195AC75B00B304DE /* testCaseLang.lm in Sources */,
+				209BA051195AC75300B304DE /* testCaseLang.ym in Sources */,
+				209BA18B1962AC4B00B304DE /* tclGrammarLogics.m in Sources */,
+				209BA18D1962F3E700B304DE /* tclObjcBridge.m in Sources */,
+				209BA194196334F000B304DE /* testHierarchyLang.lm in Sources */,
+				209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */,
+				209BA1971963351800B304DE /* thlGrammarLogics.c in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
-				209BA18B1962AC4B00B304DE /* grammarLogics.m in Sources */,
 				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
 				209BA02C195AC46E00B304DE /* AppDelegate.m in Sources */,
 				209BA028195AC46E00B304DE /* main.m in Sources */,
-				209BA051195AC75300B304DE /* test.ym in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +448,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				YACCFLAGS = "-v -d -t";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
 				YACC_GENERATE_DEBUGGING_DIRECTIVES = NO;
 			};
 			name = Debug;
@@ -429,6 +464,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				YACCFLAGS = "-v -d -t";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
 				YACC_GENERATE_DEBUGGING_DIRECTIVES = NO;
 			};
 			name = Release;

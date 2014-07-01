@@ -3,8 +3,9 @@
     #include <ctype.h>
     #include <string.h>
     #include "codeNode.h"
-    #include "y.tab.h"
+    #include "testCaseLang.tab.h"
 %}
+%option prefix = "tc"
 
 comment     \/\*([^*]|\n)*\*\/
 digit       [0-9]
@@ -22,8 +23,7 @@ strliteral  \"[^"]*{escquote}*\"
 %%
 
 {integer}       {
-                    yylval.intValue = atoi(yytext);
-                    printf("int %d\n",yylval.intValue);
+                    tclval.intValue = atoi(yytext);
                     return INTEGER;
                 }
 
@@ -32,20 +32,17 @@ strliteral  \"[^"]*{escquote}*\"
 "->"            return *yytext;
 
 {float}         {
-                    yylval.doubleValue = atof(yytext);
-                    printf("dbl %.2lf\n",yylval.doubleValue);
+                    tclval.doubleValue = atof(yytext);
                     return DOUBLE;
                 }
 
 {strliteral}    {
-                    yylval.tokname = yytext;
-                    printf("str %s\n",yytext);
+                    tclval.tokname = yytext;
                     return STRING;
                 }
 
 {ichar}+        {
-                    yylval.tokname = yytext;
-                    printf("ident %s\n",yytext);
+                    tclval.tokname = yytext;
                     return NAME_TOKEN;
                 }
 
