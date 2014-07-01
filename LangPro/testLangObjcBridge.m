@@ -11,13 +11,16 @@
 
 void bridgeRegisterTestCase(char *name, codeNodeList *paramList)
 {
+    //TODO
 }
 
 void bridgeFinalizeTestCase(codeNodeList *linesList)
 {
+    //TODO
 }
 
 int bridgeLookupForVariableName(char *name)
 {
+    //TODO
     return 0;
 }

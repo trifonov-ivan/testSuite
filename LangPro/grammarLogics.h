@@ -33,4 +33,7 @@ codeNode* codeNodeForIntConstant(int value);
 codeNode* codeNodeForDoubleConstant(double value);
 codeNode* codeNodeForStringConstant(char* value);
 
+void freeCodeNode(codeNode *node);
+void freeNodeList(codeNodeList *list);
+
 #endif

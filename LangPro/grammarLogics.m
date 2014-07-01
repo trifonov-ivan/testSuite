@@ -17,11 +17,13 @@ void logerror(char *);
 
 void registerTestCase(char *name, codeNodeList *paramList)
 {
+    /* using bridge for register test case */
     bridgeRegisterTestCase(name,paramList);
 }
 
 void finalizeTestCase(codeNodeList *linesList)
 {
+    /* using bridge for finalize testCase */
     bridgeFinalizeTestCase(linesList);
 }
 
@@ -120,19 +122,30 @@ codeNode* codeNodeForStringConstant(char* value)
     return node;
 }
 
-/*
- void freeNode(nodeType *p) {
-    int i;
+void freeCodeNode(codeNode *node)
+{
+    if (!node) return;
     
-    if (!p) return;
-    if (p->type == typeOpr) {
-        for (i = 0; i < p->opr.nops; i++)
-            freeNode(p->opr.op[i]);
-		free (p->opr.op);
+    if (node->type == typeConst && node->con.type == constString && node->con.stringVal)
+    {
+        free(node->con.stringVal);
     }
-    free (p);
+    if (node->type == typeFunc)
+    {
+        freeNodeList(node->opr.params);
+        if (node->opr.operName)
+            free(node->opr.operName);
+    }
+    free(node);
 }
-*/
+
+void freeNodeList(codeNodeList *list)
+{
+    if (!list) return;
+    freeCodeNode(list->content);
+    freeNodeList(list->next);
+    free(list);
+}
 
 void logerror(char *s) {
     fprintf(stderr, "ERROR: %s\n", s);
