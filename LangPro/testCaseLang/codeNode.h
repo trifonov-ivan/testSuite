@@ -35,14 +35,14 @@ typedef struct {
 
 /* operators */
 typedef struct {
-    int oper;                   /* operator */
-    char *operName;             /* function name */
+    int oper;                       /* operator */
+    char *operName;                 /* function name */
     struct codeNodeListTag *params; /*parameters to calculate */
 } oprNodeType;
 
 /* operators */
 typedef struct {
-    char *options;             /* function name */
+    char *options;                  /* function name */
     struct codeNodeListTag *childs; /*parameters to calculate */
 } optsNodeType;
 

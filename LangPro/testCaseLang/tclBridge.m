@@ -8,19 +8,14 @@
 
 #include <stdio.h>
 #include "codeNode.h"
+#include "tclBridge.h"
 
-void bridgeRegisterTestCase(char *name, codeNodeList *paramList)
+void bridgeRegisterTestCase(TestCase *node)
 {
     //TODO
 }
 
-void bridgeFinalizeTestCase(codeNodeList *linesList)
+int bridgeLookUpForVariable(char *name, TestCase *node)
 {
-    //TODO
-}
-
-int bridgeLookupForVariableName(char *name)
-{
-    //TODO
     return 0;
 }

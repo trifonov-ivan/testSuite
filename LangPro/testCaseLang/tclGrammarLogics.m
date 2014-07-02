@@ -9,21 +9,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tclGrammarLogics.h"
-#include "tclObjcBridge.h"
+#include "tclBridge.h"
 #include "testCaseLang.tab.h"
 
 void logerror(char *);
 
 void registerTestCase(char *name, codeNodeList *paramList)
 {
-    /* using bridge for register test case */
-    bridgeRegisterTestCase(name,paramList);
+    registerTestCaseInternal(name, paramList);
 }
 
 void finalizeTestCase(codeNodeList *linesList)
 {
-    /* using bridge for finalize testCase */
-    bridgeFinalizeTestCase(linesList);
+    finalizeTestCaseInternal(linesList);
 }
 
 codeNode* functionCall(codeNodeList *params, char *name)
@@ -45,7 +43,8 @@ codeNode* decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode)
         node->type = typeOpts;
         node->opts.options = NULL;
         list = listWithParam(source);
-    } else
+    }
+    else
     {
         node = source;
         list = source->opts.childs;
@@ -70,8 +69,10 @@ codeNode* codeNodeWithVariableCall(char *name)
 {
     codeNode *node = (codeNode*)malloc(sizeof(codeNode));
     node->type = typeVariable;
+
     /* using bridge for lookup value id */
-    node->var.i = bridgeLookupForVariableName(name);
+    node->var.i = lookupForVariableName(name);
+    
     return node;
 }
 

@@ -8,18 +8,19 @@
 
 #include <stdio.h>
 #include "thlGrammarLogics.h"
-#include "thlObjcBridge.h"
+#include "thlBridge.h"
 #include "testHierarchyLang.tab.h"
+#include "builders.h"
 
 void registerTestHierarchy(char *name)
 {
     /* using bridge for register test case */
-    bridgeRegisterTestHierarchy(name);
+    registerTestHierarchyInternal(name);
 }
 void finalizeTestHierarchy(codeNodeList* exprs)
 {
     /* using bridge for finalize testCase */
-    bridgeFinalizeTestHierarchy(exprs);
+    finalizeTestHierarchyInternal(exprs);
 }
 
 codeNode* groupNodeWithOpts(char *opts)

@@ -10,6 +10,7 @@
 #define LangPro_tclGrammarLogics_h
 
 #include "commonLogics.h"
+#include "builders.h"
 
 void registerTestCase(char *name, codeNodeList *paramList);
 void finalizeTestCase(codeNodeList *linesList);
