@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Ivan Trifonov. All rights reserved.
 //
 
+#ifndef codeNode_h
+#define codeNode_h
+
+
 typedef enum { typeFunc, typeConst, typeVariable, typeOpts} nodeEnum;
 
 typedef enum { constInt, constDouble, constString} constType;
@@ -64,3 +68,5 @@ typedef struct codeNodeTreeTag{
     struct codeNodeTreeTag *first;
     struct codeNodeTreeTag *child;
 }codeNodeTree;
+
+#endif

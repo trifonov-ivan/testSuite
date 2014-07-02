@@ -7,11 +7,10 @@
 //
 
 #include <stdio.h>
-#include "codeNode.h"
-#include "testCaseLang.tab.h"
 #include <stdlib.h>
 #include "tclGrammarLogics.h"
 #include "tclObjcBridge.h"
+#include "testCaseLang.tab.h"
 
 void logerror(char *);
 
@@ -93,33 +92,6 @@ codeNode* codeNodeSetWithVariable(char *name, char *valueName)
     codeNode *first = codeNodeWithVariableCall(name);
     codeNode *second = codeNodeWithVariableCall(valueName);
     return mathCall(signSET, first, second);
-}
-
-codeNode* codeNodeForIntConstant(int value)
-{
-    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    node->type = typeConst;
-    node->con.type = constInt;
-    node->con.intVal = value;
-    return node;
-}
-
-codeNode* codeNodeForDoubleConstant(double value)
-{
-    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    node->type = typeConst;
-    node->con.type = constDouble;
-    node->con.dblVal = value;
-    return node;
-}
-
-codeNode* codeNodeForStringConstant(char* value)
-{
-    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
-    node->type = typeConst;
-    node->con.type = constString;
-    node->con.stringVal = value;
-    return node;
 }
 
 void logerror(char *s) {

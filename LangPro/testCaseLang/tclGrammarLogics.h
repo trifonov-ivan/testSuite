@@ -30,9 +30,4 @@ codeNode* codeNodeWithVariableCall(char *name);
 codeNode* codeNodeSetWithExpression(char *name, codeNode* value);
 codeNode* codeNodeSetWithVariable(char *name, char *valueName);
 
-/* constants translation*/
-codeNode* codeNodeForIntConstant(int value);
-codeNode* codeNodeForDoubleConstant(double value);
-codeNode* codeNodeForStringConstant(char* value);
-
 #endif

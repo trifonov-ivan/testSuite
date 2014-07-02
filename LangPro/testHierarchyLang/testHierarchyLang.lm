@@ -23,28 +23,28 @@ strliteral  \"[^"]*{escquote}*\"
 %%
 
 {integer}       {
-    thlval.intValue = atoi(yytext);
-    return INTEGER;
-}
+                    thlval.intValue = atoi(yytext);
+                    return INTEGER;
+                }
 
 "->"            return ARROW;
 
 "#end"          return END_TERMINAL;
 
 {float}         {
-    thlval.doubleValue = atof(yytext);
-    return DOUBLE;
-}
+                    thlval.doubleValue = atof(yytext);
+                    return DOUBLE;
+                }
 
 {strliteral}    {
-    thlval.tokname = yytext;
-    return STRING;
-}
+                    thlval.tokname = yytext;
+                    return STRING;
+                }
 
 {ichar}+        {
-    thlval.tokname = yytext;
-    return NAME_TOKEN;
-}
+                    thlval.tokname = yytext;
+                    return NAME_TOKEN;
+                }
 
 
 [(){}#]        return *yytext;

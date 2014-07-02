@@ -8,9 +8,15 @@
 
 #ifndef LangPro_commonLogics_h
 #define LangPro_commonLogics_h
+#include "codeNode.h"
+
 void freeCodeNode(codeNode *node);
 void freeNodeList(codeNodeList *list);
 
+/* constants translation*/
+codeNode* codeNodeForIntConstant(int value);
+codeNode* codeNodeForDoubleConstant(double value);
+codeNode* codeNodeForStringConstant(char* value);
 
 
 #endif

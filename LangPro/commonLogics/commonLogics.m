@@ -7,8 +7,36 @@
 //
 
 #include <stdio.h>
-#include "codeNode.h"
 #include "commonLogics.h"
+
+codeNode* codeNodeForIntConstant(int value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constInt;
+    node->con.intVal = value;
+    return node;
+}
+
+codeNode* codeNodeForDoubleConstant(double value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constDouble;
+    node->con.dblVal = value;
+    return node;
+}
+
+codeNode* codeNodeForStringConstant(char* value)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeConst;
+    node->con.type = constString;
+    node->con.stringVal = value;
+    return node;
+}
+
+
 void freeCodeNode(codeNode *node)
 {
     if (!node) return;

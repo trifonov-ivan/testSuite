@@ -7,3 +7,6 @@
 //
 
 #include <stdio.h>
+#include "thlGrammarLogics.h"
+#include "thlObjcBridge.h"
+#include "testHierarchyLang.tab.h"

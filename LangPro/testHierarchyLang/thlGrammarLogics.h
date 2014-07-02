@@ -9,6 +9,6 @@
 #ifndef LangPro_thlGrammarLogics_h
 #define LangPro_thlGrammarLogics_h
 
-
+#include "commonLogics.h"
 
 #endif
