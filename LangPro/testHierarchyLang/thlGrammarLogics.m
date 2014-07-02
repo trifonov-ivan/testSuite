@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include "thlGrammarLogics.h"
-#include "thlBridge.h"
+#include "bridges.h"
 #include "testHierarchyLang.tab.h"
 #include "builders.h"
 

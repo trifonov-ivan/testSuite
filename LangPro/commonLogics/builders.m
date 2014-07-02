@@ -8,8 +8,7 @@
 
 #include <stdio.h>
 #include "builders.h"
-#include "tclBridge.h"
-#include "thlBridge.h"
+#include "bridges.h"
 
 static TestCase *currentCase = NULL;
 static TestHierarchy *currentHierarchy = NULL;
@@ -70,8 +69,7 @@ int lookupForVariableName(char *name)
 
 TestCase* lookupForTestCase(char *tcName)
 {
-    //TODO
-    return NULL;
+    return bridgeLookupForTestCase(tcName);
 }
 
 TestHierarchy* getCurrentProcessedTestHierarchy()

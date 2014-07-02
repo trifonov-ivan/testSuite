@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tclGrammarLogics.h"
-#include "tclBridge.h"
+#include "bridges.h"
 #include "testCaseLang.tab.h"
 
 void logerror(char *);
