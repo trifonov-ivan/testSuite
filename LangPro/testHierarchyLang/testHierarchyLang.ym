@@ -36,11 +36,11 @@
 %%
 
 program:
-alias module END_TERMINAL          {/*finalizeTestCase($2);*/}
+alias module END_TERMINAL          {}
 ;
 
 alias:
-'#' NAME_TOKEN {/*registerTestCaseHierarchy($2,$3);*/}
+'#' NAME_TOKEN {}
 ;
 
 module:

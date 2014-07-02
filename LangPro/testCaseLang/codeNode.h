@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ivan Trifonov. All rights reserved.
 //
 
-typedef enum { typeFunc, typeConst, typeVariable } nodeEnum;
+typedef enum { typeFunc, typeConst, typeVariable, typeOpts} nodeEnum;
 
 typedef enum { constInt, constDouble, constString} constType;
 
@@ -34,13 +34,21 @@ typedef struct {
     struct codeNodeListTag *params; /*parameters to calculate */
 } oprNodeType;
 
+/* operators */
+typedef struct {
+    char *options;             /* function name */
+    struct codeNodeListTag *childs; /*parameters to calculate */
+} optsNodeType;
+
+
 typedef struct codeNodeTag{
     nodeEnum type;
     
     union {
-        oprNodeType opr;
-        conNodeType con;
-        idNodeType  var;
+        oprNodeType     opr;
+        conNodeType     con;
+        idNodeType      var;
+        optsNodeType    opts;
     };
 } codeNode;
 
@@ -49,3 +57,10 @@ typedef struct codeNodeListTag{
     struct codeNodeListTag *next;
     struct codeNodeListTag *first;
 } codeNodeList;
+
+typedef struct codeNodeTreeTag{
+    codeNode *content;
+    struct codeNodeTreeTag *next;
+    struct codeNodeTreeTag *first;
+    struct codeNodeTreeTag *child;
+}codeNodeTree;

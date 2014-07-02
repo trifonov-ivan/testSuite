@@ -2,7 +2,7 @@
 
 fastLogin()
     ->openMachine(293)
-    ->(){
+    ->(failOnFirst){
         five_in_a_row(1)
             ->shareOnFiveInARow()
             ->(){
