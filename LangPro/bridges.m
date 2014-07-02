@@ -8,25 +8,23 @@
 
 #include <stdio.h>
 #include "bridges.h"
-
+#import "TestManager.h"
 void bridgeRegisterTestCase(TestCase *node)
 {
-    //TODO
+    [[TestManager sharedManager] registerTestCase:node];
 }
 
 TestCase* bridgeLookupForTestCase(char *name)
 {
-    //TODO
-    return NULL;
+    return [[TestManager sharedManager] lookupForTestCase:name];
 }
 
 int bridgeLookUpForVariable(char *name, TestCase *node)
 {
-    //TODO
-    return 0;
+    return [[TestManager sharedManager] lookUpForVariable:name forCase:node];
 }
 
 void bridgeRegisterTestHierarchy(TestHierarchy *node)
 {
-    //TODO
+    [[TestManager sharedManager] registerTestHierarchy:node];
 }

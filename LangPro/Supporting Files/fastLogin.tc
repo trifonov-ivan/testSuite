@@ -1,0 +1,5 @@
+#fastLogin
+
+waitFor("lobbyLoaded",10)
+
+#end

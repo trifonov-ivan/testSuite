@@ -89,7 +89,8 @@ TestHierarchy* registerTestHierarchyInternal(char *name)
 TestHierarchy* finalizeTestHierarchyInternal(codeNodeList* exprs)
 {
     currentHierarchy = buildChildHierarchyFor(exprs, NULL, currentHierarchy);
-    bridgeRegisterTestHierarchy(currentHierarchy);
+    if (currentHierarchy != NULL)
+        bridgeRegisterTestHierarchy(currentHierarchy);
     return currentHierarchy;
 }
 

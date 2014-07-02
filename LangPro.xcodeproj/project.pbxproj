@@ -11,6 +11,8 @@
 		203FA8811963FE6F000EC003 /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8801963FE6F000EC003 /* builders.m */; };
 		203FA883196400E3000EC003 /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA882196400E3000EC003 /* executors.m */; };
 		203FA88719642EAF000EC003 /* bridges.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA88619642EAF000EC003 /* bridges.m */; };
+		203FA88A19642F74000EC003 /* TestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA88919642F74000EC003 /* TestManager.m */; };
+		203FA88C1964312E000EC003 /* fastLogin.tc in Resources */ = {isa = PBXBuildFile; fileRef = 203FA88B1964312E000EC003 /* fastLogin.tc */; };
 		209BA01C195AC46E00B304DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209BA01B195AC46E00B304DE /* Foundation.framework */; };
 		209BA01E195AC46E00B304DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209BA01D195AC46E00B304DE /* CoreGraphics.framework */; };
 		209BA020195AC46E00B304DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 209BA01F195AC46E00B304DE /* UIKit.framework */; };
@@ -55,6 +57,9 @@
 		203FA884196400EE000EC003 /* executors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = executors.h; sourceTree = "<group>"; };
 		203FA88519642EA6000EC003 /* bridges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridges.h; sourceTree = "<group>"; };
 		203FA88619642EAF000EC003 /* bridges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bridges.m; sourceTree = "<group>"; };
+		203FA88819642F74000EC003 /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
+		203FA88919642F74000EC003 /* TestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestManager.m; sourceTree = "<group>"; };
+		203FA88B1964312E000EC003 /* fastLogin.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fastLogin.tc; sourceTree = "<group>"; };
 		209BA018195AC46E00B304DE /* LangPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LangPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		209BA01B195AC46E00B304DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		209BA01D195AC46E00B304DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +137,8 @@
 			children = (
 				203FA88519642EA6000EC003 /* bridges.h */,
 				203FA88619642EAF000EC003 /* bridges.m */,
+				203FA88819642F74000EC003 /* TestManager.h */,
+				203FA88919642F74000EC003 /* TestManager.m */,
 			);
 			name = ObjcLogics;
 			sourceTree = "<group>";
@@ -195,6 +202,7 @@
 				209BA029195AC46E00B304DE /* LangPro-Prefix.pch */,
 				209BA0CD196144E000B304DE /* example.tc */,
 				209BA1981963365700B304DE /* example.th */,
+				203FA88B1964312E000EC003 /* fastLogin.tc */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 			files = (
 				209BA034195AC46E00B304DE /* Images.xcassets in Resources */,
 				209BA026195AC46E00B304DE /* InfoPlist.strings in Resources */,
+				203FA88C1964312E000EC003 /* fastLogin.tc in Resources */,
 				209BA1991963365700B304DE /* example.th in Resources */,
 				209BA02F195AC46E00B304DE /* Main.storyboard in Resources */,
 				209BA0CE196144E000B304DE /* example.tc in Resources */,
@@ -347,6 +356,7 @@
 				203FA8811963FE6F000EC003 /* builders.m in Sources */,
 				209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */,
 				209BA1971963351800B304DE /* thlGrammarLogics.m in Sources */,
+				203FA88A19642F74000EC003 /* TestManager.m in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
 				203FA883196400E3000EC003 /* executors.m in Sources */,
 				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
