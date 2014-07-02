@@ -41,7 +41,7 @@ static TestReader *reader = nil;
     if (str)
     {
         tc_switch_to_buffer(tc_scan_string([str UTF8String]));
-        tcdebug = 1;
+//        tcdebug = 1;
         tcparse();
     }
 }
@@ -52,7 +52,7 @@ static TestReader *reader = nil;
     if (str)
     {
         th_switch_to_buffer(th_scan_string([str UTF8String]));
-        thdebug = 1;
+//        thdebug = 1;
         thparse();
     }
 }

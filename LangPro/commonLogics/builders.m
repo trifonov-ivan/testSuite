@@ -35,6 +35,9 @@ TestCase* registerTestCaseInternal(char *name, codeNodeList *paramList)
 TestCase* finalizeTestCaseInternal(codeNodeList *linesList)
 {
     currentCase->list = linesList;
+    
+    bridgeRegisterTestCase(currentCase);
+    
     return currentCase;
 }
 
@@ -62,8 +65,7 @@ TestCase* copyCase(TestCase* source)
 
 int lookupForVariableName(char *name)
 {
-    //TODO
-    return 0;
+    return bridgeLookUpForVariable(name, currentCase);
 }
 
 TestCase* lookupForTestCase(char *tcName)
@@ -88,7 +90,9 @@ TestHierarchy* registerTestHierarchyInternal(char *name)
 
 TestHierarchy* finalizeTestHierarchyInternal(codeNodeList* exprs)
 {
-    return buildChildHierarchyFor(exprs, NULL, currentHierarchy);
+    currentHierarchy = buildChildHierarchyFor(exprs, NULL, currentHierarchy);
+    bridgeRegisterTestHierarchy(currentHierarchy);
+    return currentHierarchy;
 }
 
 TestHierarchy* buildChildHierarchyFor(codeNodeList* exprs, TestCaseOpts opts, TestHierarchy *source)

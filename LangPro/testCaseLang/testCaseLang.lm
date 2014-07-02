@@ -37,12 +37,12 @@ strliteral  \"[^"]*{escquote}*\"
                 }
 
 {strliteral}    {
-                    tclval.tokname = yytext;
+                    tclval.tokname = strdup(yytext);
                     return STRING;
                 }
 
 {ichar}+        {
-                    tclval.tokname = yytext;
+                    tclval.tokname = strdup(yytext);
                     return NAME_TOKEN;
                 }
 
