@@ -24,8 +24,8 @@
 %token <doubleValue> DOUBLE
 %token <tokname> STRING
 
-%type <nPtr> constant
-%type <nodeList> module
+%type <nPtr> constant param options case_call
+%type <nodeList> module param_list case_call_list expr
 
 %token ERROR ARROW END_TERMINAL
 %token <tokname> NAME_TOKEN
@@ -33,48 +33,48 @@
 %%
 
 program:
-    alias module END_TERMINAL                   {}
+    alias module END_TERMINAL                   {finalizeTestHierarchy($2);}
 ;
 
 alias:
-    '#' NAME_TOKEN                              {}
+    '#' NAME_TOKEN                              {registerTestHierarchy($2);}
 ;
 
 module:
-    case_call_list                              {}
+    case_call_list                              {$$ = $1;}
 ;
-
 
 expr:
-    case_call                                   {}
-    | expr ARROW case_call                      {}
+    case_call                                   {$$ = listWithParam($1);}
+    | expr ARROW case_call                      {$$ = addNodeToList($1,$3);}
 ;
 
-case_call_list: /* May be NULL */               {}
-    |case_call_list expr                        {}
+case_call_list: /* May be NULL */               {$$ = NULL;}
+    | case_call_list expr                       {$$ = addListToList($1,$2);}
 ;
 
 case_call:
-    NAME_TOKEN '(' param_list ')'               {}
-    | '(' options ')' '{' case_call_list '}'    {}
+    NAME_TOKEN '(' param_list ')'               {$$ = testCaseCall($3,$1);}
+    | '(' options ')' '{' case_call_list '}'    {$$ = arrachGroupToGroupNode($5,$2);}
 ;
 
-options: /* May be NULL */                      {}
-    | NAME_TOKEN                                {}
+options: /* May be NULL */                      {$$ = groupNodeWithOpts(NULL);}
+    | NAME_TOKEN                                {$$ = groupNodeWithOpts($1);}
 ;
 
-param_list: /* May be NULL */                   {}
-    | param_list param                          {}
+param_list: /* May be NULL */                   {$$ = NULL;}
+    | param                                     {$$ = listWithParam($1);}
+    | param_list ',' param                      {$$ = addNodeToList($1,$3);}
 ;
 /* we are not allow to make another test case as a param in this */
 param:
-    constant                                    {}
+    constant                                    {$$ = $1;}
 ;
 
 constant:
-    INTEGER                             {$$ = codeNodeForIntConstant($1);}
-    | DOUBLE                            {$$ = codeNodeForDoubleConstant($1);}
-    | STRING                            {$$ = codeNodeForStringConstant($1);}
+    INTEGER                                     {$$ = codeNodeForIntConstant($1);}
+    | DOUBLE                                    {$$ = codeNodeForDoubleConstant($1);}
+    | STRING                                    {$$ = codeNodeForStringConstant($1);}
 ;
 
 %%

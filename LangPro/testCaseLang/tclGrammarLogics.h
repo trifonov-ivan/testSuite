@@ -14,10 +14,6 @@
 void registerTestCase(char *name, codeNodeList *paramList);
 void finalizeTestCase(codeNodeList *linesList);
 
-/* list operands */
-codeNodeList* listWithParam(codeNode *param);
-codeNodeList* addNodeToList(codeNodeList *listcode, codeNode *param);
-
 /* function operands */
 codeNode* functionCall(codeNodeList *params, char *name);
 codeNode* decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode);

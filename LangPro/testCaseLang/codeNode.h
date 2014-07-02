@@ -16,6 +16,8 @@ typedef enum { constInt, constDouble, constString} constType;
 
 typedef enum { signLT, signMT, signLE, signME, signEQ, signAND, signOR, signMINUS, signPLUS, signMULTIPLY, signDIVIDE, signSET } signEnum;
 
+typedef enum { listOfNodes, listOfLists } listTypeEnum;
+
 /* identifiers */
 typedef struct {
     int i;                      /* subscript to sym array */
@@ -57,16 +59,13 @@ typedef struct codeNodeTag{
 } codeNode;
 
 typedef struct codeNodeListTag{
-    codeNode *content;
+    listTypeEnum type;
+    union {
+        codeNode *content;
+        struct codeNodeListTag *listContent;
+    };
     struct codeNodeListTag *next;
     struct codeNodeListTag *first;
 } codeNodeList;
-
-typedef struct codeNodeTreeTag{
-    codeNode *content;
-    struct codeNodeTreeTag *next;
-    struct codeNodeTreeTag *first;
-    struct codeNodeTreeTag *child;
-}codeNodeTree;
 
 #endif

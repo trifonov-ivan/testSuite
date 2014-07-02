@@ -26,25 +26,6 @@ void finalizeTestCase(codeNodeList *linesList)
     bridgeFinalizeTestCase(linesList);
 }
 
-codeNodeList* listWithParam(codeNode *param)
-{
-    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
-    list->content = param;
-    list->first = list;
-    list->next = NULL;
-    return list;
-}
-
-codeNodeList* addNodeToList(codeNodeList *listcode, codeNode *param)
-{
-    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
-    list->content = param;
-    list->first = listcode->first;
-    listcode->next = list;
-    list->next = NULL;
-    return list;
-}
-
 codeNode* functionCall(codeNodeList *params, char *name)
 {
     codeNode *node = (codeNode*)malloc(sizeof(codeNode));
@@ -56,8 +37,21 @@ codeNode* functionCall(codeNodeList *params, char *name)
 
 codeNode* decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode)
 {
-    //TODO
-    return source;
+    codeNode *node;
+    codeNodeList *list;
+    if (source->type != typeOpts)
+    {
+        node = (codeNode*)malloc(sizeof(codeNode));
+        node->type = typeOpts;
+        node->opts.options = NULL;
+        list = listWithParam(source);
+    } else
+    {
+        node = source;
+        list = source->opts.childs;
+    }
+    source->opts.childs = addNodeToList(list, decorateNode);
+    return node;
 }
 
 codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand)

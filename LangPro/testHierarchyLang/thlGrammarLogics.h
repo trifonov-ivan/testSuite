@@ -11,4 +11,11 @@
 
 #include "commonLogics.h"
 
+void registerTestHierarchy(char *name);
+void finalizeTestHierarchy(codeNodeList* exprs);
+
+codeNode* groupNodeWithOpts(char *opts);
+codeNode* arrachGroupToGroupNode(codeNodeList *group, codeNode *groupNode);
+codeNode* testCaseCall(codeNodeList *params, char *name);
+
 #endif

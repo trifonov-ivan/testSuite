@@ -9,6 +9,9 @@
 #ifndef LangPro_thlObjcBridge_h
 #define LangPro_thlObjcBridge_h
 
+#include "codeNode.h"
 
+void bridgeRegisterTestHierarchy(char *name);
+void bridgeFinalizeTestHierarchy(codeNodeList *linesList);
 
 #endif

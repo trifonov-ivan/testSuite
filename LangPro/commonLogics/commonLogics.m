@@ -9,6 +9,62 @@
 #include <stdio.h>
 #include "commonLogics.h"
 
+codeNodeList* listWithParam(codeNode *param)
+{
+    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
+    list->type = listOfNodes;
+    list->content = param;
+    list->first = list;
+    list->next = NULL;
+    return list;
+}
+
+codeNodeList* addNodeToList(codeNodeList *listcode, codeNode *param)
+{
+    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
+    list->type = listOfNodes;
+    list->content = param;
+    if (listcode)
+    {
+        list->first = listcode->first;
+        listcode->next = list;
+    }
+    else
+    {
+        list->first = list;
+    }
+    list->next = NULL;
+    return list;
+}
+
+codeNodeList* listWithList(codeNodeList *param)
+{
+    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
+    list->type = listOfLists;
+    list->listContent = param;
+    list->first = list;
+    list->next = NULL;
+    return list;
+}
+
+codeNodeList* addListToList(codeNodeList *listcode, codeNodeList *param)
+{
+    codeNodeList *list = (codeNodeList*)malloc(sizeof(codeNodeList));
+    list->type = listOfNodes;
+    list->listContent = param;
+    if (listcode)
+    {
+        list->first = listcode->first;
+        listcode->next = list;
+    }
+    else
+    {
+        list->first = list;
+    }
+    list->next = NULL;
+    return list;
+}
+
 codeNode* codeNodeForIntConstant(int value)
 {
     codeNode *node = (codeNode*)malloc(sizeof(codeNode));
@@ -39,7 +95,8 @@ codeNode* codeNodeForStringConstant(char* value)
 
 void freeCodeNode(codeNode *node)
 {
-    if (!node) return;
+    if (!node)
+        return;
     
     if (node->type == typeConst && node->con.type == constString && node->con.stringVal)
     {
@@ -55,7 +112,10 @@ void freeCodeNode(codeNode *node)
 
     if (node->type == typeOpts)
     {
-        freeNodeList(node->opts.childs);
+        if (node->opts.options)
+            free(node->opts.options);
+        if (node->opts.childs)
+            freeNodeList(node->opts.childs);
     }
     
     free(node);
@@ -63,8 +123,15 @@ void freeCodeNode(codeNode *node)
 
 void freeNodeList(codeNodeList *list)
 {
-    if (!list) return;
-    freeCodeNode(list->content);
+    if (!list)
+        return;
+    
+    if (list->type == listOfNodes)
+        freeCodeNode(list->content);
+    
+    if (list->type == listOfLists)
+        freeNodeList(list->listContent);
+    
     freeNodeList(list->next);
     free(list);
 }

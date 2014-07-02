@@ -7,3 +7,13 @@
 //
 
 #include <stdio.h>
+#include "thlObjcBridge.h"
+
+void bridgeRegisterTestHierarchy(char *name)
+{
+    //TODO
+}
+void bridgeFinalizeTestHierarchy(codeNodeList *linesList)
+{
+    //TODO
+}

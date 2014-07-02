@@ -13,6 +13,12 @@
 void freeCodeNode(codeNode *node);
 void freeNodeList(codeNodeList *list);
 
+/* list operands */
+codeNodeList* listWithParam(codeNode *param);
+codeNodeList* addNodeToList(codeNodeList *listcode, codeNode *param);
+codeNodeList* listWithList(codeNodeList *param);
+codeNodeList* addListToList(codeNodeList *listcode, codeNodeList *param);
+
 /* constants translation*/
 codeNode* codeNodeForIntConstant(int value);
 codeNode* codeNodeForDoubleConstant(double value);
