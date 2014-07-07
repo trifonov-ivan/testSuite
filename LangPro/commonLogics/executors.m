@@ -7,4 +7,13 @@
 //
 
 #include <stdio.h>
+#include "executors.h"
 
+testExecutionState executeTestCase(TestCase *node)
+{
+    return TEST_STATE_NOT_RUNNED;
+}
+testExecutionState executeTestHierarchy(TestHierarchy *node)
+{
+    return TEST_STATE_NOT_RUNNED;
+}

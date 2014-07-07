@@ -9,4 +9,9 @@
 #ifndef LangPro_executors_h
 #define LangPro_executors_h
 
+#include "builders.h"
+
+testExecutionState executeTestCase(TestCase *node);
+testExecutionState executeTestHierarchy(TestHierarchy *node);
+
 #endif

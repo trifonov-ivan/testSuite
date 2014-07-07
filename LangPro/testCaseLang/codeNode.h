@@ -9,6 +9,7 @@
 #ifndef codeNode_h
 #define codeNode_h
 
+#define TCLog NSLog
 
 typedef enum { typeFunc, typeConst, typeVariable, typeOpts} nodeEnum;
 

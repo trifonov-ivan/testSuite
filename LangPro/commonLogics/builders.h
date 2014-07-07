@@ -10,7 +10,7 @@
 #define LangPro_builders_h
 #include "commonLogics.h"
 
-typedef enum { TESTSTATE_NOT_RUNNED, TESTSTATE_OK, TEST_STATE_FAILED, TEST_STATE_PARTLY } testExecutionState;
+typedef enum { TEST_STATE_NOT_RUNNED, TESTSTATE_OK, TEST_STATE_FAILED, TEST_STATE_PARTLY } testExecutionState;
 
 typedef enum { TestListCaseNone, TestListCaseNode, TestListHierarchyNode } testListNode;
 

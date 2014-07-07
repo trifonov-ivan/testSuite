@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #include "bridges.h"
+
 @interface TestManager : NSObject
 
 +(TestManager*) sharedManager;
 -(void) registerTestCase: (TestCase *) node;
 -(void) registerTestHierarchy:(TestHierarchy*) node;
 -(TestCase*) lookupForTestCase:(char *) name;
--(int) lookUpForVariable:(char*) name forCase: (TestCase*) node;
 
+-(int) lookUpForVariable:(char*) name forCase: (TestCase*) node;
+-(void*) pushVariableAtIndex:(int) index forCase: (TestCase*) node;
+-(void) popData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node;
 @end
