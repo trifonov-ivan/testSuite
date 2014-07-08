@@ -17,4 +17,6 @@
 -(void*) popVariableAtIndex:(int) index forCase: (TestCase*) node;
 -(void) pushData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node;
 
+-(void) fireSignal:(NSString*)signal withData:(id) data;
+
 @end

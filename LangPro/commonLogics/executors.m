@@ -10,6 +10,106 @@
 #include "executors.h"
 #include "bridges.h"
 
+void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success);
+
+codeNodeList* processParamList(codeNodeList* node, TestCase *test, bool *success)
+{
+    if (!node)
+        return NULL;
+    codeNodeList *source = node->first;
+    codeNodeList *result = NULL;
+    while (source)
+    {
+        bool statusOK = YES;
+        codeNode *resNode = processOperationalCodeNode(source->content, test, &statusOK);
+        if (!result)
+        {
+            result = listWithParam(resNode);
+        }
+        else
+        {
+            result = addNodeToList(result, resNode);
+        }
+        source = source->next;
+    }
+    return result;
+}
+
+void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
+{
+    //TODO
+    return NULL;
+}
+
+void *processMathCodeNode(codeNode *node, TestCase *test, bool *success)
+{
+    //TODO
+    return NULL;
+}
+
+bool processRow(codeNode* row, TestCase *test)
+{
+    if (row->type == typeOpts) // this is a chained function call
+    {
+        bool statusOK = YES;
+        processOperationalCodeNode(row, test, &statusOK);
+        return statusOK;
+    }
+    else if (row->opr.operName) // this is a function call
+    {
+        bool statusOK = YES;
+        processOperationalCodeNode(row, test, &statusOK);
+        return statusOK;
+    }
+    else if (row->opr.oper == signSET) //this is an equality
+    {
+        if (row->opr.params->first->content->type != typeVariable)
+        {
+            TCLog(@"left part of expression must be variable name");
+            return NO;
+        }
+        int varIndex = row->opr.params->first->content->var.i;
+        bool statusOK = YES;
+        void *data = NULL;
+        codeNode *rightPart = row->opr.params->first->next->content;
+        switch (rightPart->type)
+        {
+            case typeConst:
+            {
+                data = rightPart;
+            }
+                break;
+            case typeVariable:
+            {
+                data = popVariableAtIndex(rightPart->var.i, test);
+            }
+                break;
+            case typeFunc:
+            {
+                if (rightPart->opr.operName)
+                {
+                    data = processOperationalCodeNode(rightPart, test, &statusOK);
+                }
+                else
+                {
+                    data = processMathCodeNode(rightPart, test, &statusOK);
+                }
+            }
+                break;
+            case typeOpts:
+            {
+                data = processOperationalCodeNode(rightPart, test, &statusOK);
+            }
+            default:
+                break;
+        }
+        if (!statusOK)
+            return NO;
+        pushData(data, varIndex, test);
+    }
+    return YES;
+}
+
 testExecutionState executeTestCase(TestCase *node)
 {
     TCLog(@"executing testCase %@",STR(node->name));
@@ -23,9 +123,16 @@ testExecutionState executeTestCase(TestCase *node)
         params = params->next;
         values = values->next;
     }
-    
-    codeNodeList *expr = node->list;
-    
+    if (!node->list)
+        return TEST_STATE_OK;
+    codeNodeList *expr = node->list->first;
+    while (expr)
+    {
+        codeNode *row = expr->content;
+        if (!processRow(row, node))
+            return TEST_STATE_FAILED;
+        expr = expr->next;
+    }
     return TEST_STATE_OK;
 }
 
@@ -38,6 +145,17 @@ void iterateOverTestHierarchy(TestHierarchy *node, TestCaseOpts opts)
         while (tc != NULL)
         {
             tc->executionState = executeTestCase(tc);
+            switch (tc->executionState) {
+                case TEST_STATE_FAILED:
+                    TCLog(@"failed");
+                    break;
+                case TEST_STATE_OK:
+                    TCLog(@"success");
+                    break;
+                default:
+                    break;
+            }
+            
             if (tc->executionState == TEST_STATE_FAILED)
             {
                 //we don't continue execution of hierarchy

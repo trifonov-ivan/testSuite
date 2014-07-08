@@ -25,9 +25,12 @@
 {
     return nil;
 }
--(void) executeWithParams:(NSArray*)params
+
+-(id) executeWithParams:(NSArray*)params success:(BOOL*)success
 {
     NSAssert(true,@"must be implemented in subclass");
+    *success = YES;
+    return nil;
 }
 
 

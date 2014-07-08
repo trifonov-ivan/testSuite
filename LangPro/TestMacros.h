@@ -18,6 +18,8 @@
 /* implement this methods for running macroses */
 /* please note, than decorator may be decorate by other macros */
 +(NSArray*)possibleDecoratorNames;
--(void) executeWithParams:(NSArray*)params;
+
+/* success is equal to NO in case of fail */
+-(id) executeWithParams:(NSArray*)params success:(BOOL*)success;
 
 @end

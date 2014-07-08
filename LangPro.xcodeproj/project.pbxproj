@@ -13,6 +13,12 @@
 		20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A17196BEEFF001A67C2 /* TestExecutor.m */; };
 		20311A1B196BEF84001A67C2 /* TestMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A1A196BEF84001A67C2 /* TestMacros.m */; };
 		20311A20196BF53C001A67C2 /* getSubclasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A1F196BF53C001A67C2 /* getSubclasses.m */; };
+		20311A25196C0533001A67C2 /* LogMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A24196C0533001A67C2 /* LogMacros.m */; };
+		20311A28196C054D001A67C2 /* SendMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A27196C054D001A67C2 /* SendMacros.m */; };
+		20311A2B196C056A001A67C2 /* waitForMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A2A196C056A001A67C2 /* waitForMacros.m */; };
+		20311A2E196C0582001A67C2 /* TimeOutDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A2D196C0582001A67C2 /* TimeOutDecorator.m */; };
+		20311A31196C059D001A67C2 /* FailSignalsDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A30196C059D001A67C2 /* FailSignalsDecorator.m */; };
+		20311A34196C05C0001A67C2 /* OnFailDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A33196C05C0001A67C2 /* OnFailDecorator.m */; };
 		203FA8741963D04E000EC003 /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8731963D04E000EC003 /* commonLogics.m */; };
 		203FA8811963FE6F000EC003 /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8801963FE6F000EC003 /* builders.m */; };
 		203FA883196400E3000EC003 /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA882196400E3000EC003 /* executors.m */; };
@@ -66,6 +72,18 @@
 		20311A1A196BEF84001A67C2 /* TestMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMacros.m; sourceTree = "<group>"; };
 		20311A1E196BF530001A67C2 /* getSubclasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getSubclasses.h; sourceTree = "<group>"; };
 		20311A1F196BF53C001A67C2 /* getSubclasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSubclasses.m; sourceTree = "<group>"; };
+		20311A23196C0533001A67C2 /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
+		20311A24196C0533001A67C2 /* LogMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMacros.m; sourceTree = "<group>"; };
+		20311A26196C054D001A67C2 /* SendMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMacros.h; sourceTree = "<group>"; };
+		20311A27196C054D001A67C2 /* SendMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMacros.m; sourceTree = "<group>"; };
+		20311A29196C056A001A67C2 /* waitForMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = waitForMacros.h; sourceTree = "<group>"; };
+		20311A2A196C056A001A67C2 /* waitForMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = waitForMacros.m; sourceTree = "<group>"; };
+		20311A2C196C0582001A67C2 /* TimeOutDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeOutDecorator.h; sourceTree = "<group>"; };
+		20311A2D196C0582001A67C2 /* TimeOutDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOutDecorator.m; sourceTree = "<group>"; };
+		20311A2F196C059D001A67C2 /* FailSignalsDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailSignalsDecorator.h; sourceTree = "<group>"; };
+		20311A30196C059D001A67C2 /* FailSignalsDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailSignalsDecorator.m; sourceTree = "<group>"; };
+		20311A32196C05C0001A67C2 /* OnFailDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnFailDecorator.h; sourceTree = "<group>"; };
+		20311A33196C05C0001A67C2 /* OnFailDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnFailDecorator.m; sourceTree = "<group>"; };
 		203FA8721963D046000EC003 /* commonLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonLogics.h; sourceTree = "<group>"; };
 		203FA8731963D04E000EC003 /* commonLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonLogics.m; sourceTree = "<group>"; };
 		203FA87F1963FE64000EC003 /* builders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builders.h; sourceTree = "<group>"; };
@@ -144,6 +162,37 @@
 			name = utils;
 			sourceTree = "<group>";
 		};
+		20311A21196C050A001A67C2 /* TestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				20311A1D196BF51B001A67C2 /* utils */,
+				203FA8781963E8B4000EC003 /* ObjcLogics */,
+				203FA8711963D032000EC003 /* commonLogics */,
+				209BA190196334A400B304DE /* testHierarchyLang */,
+				209BA18F1963349500B304DE /* testCaseLang */,
+			);
+			name = TestSuite;
+			sourceTree = "<group>";
+		};
+		20311A22196C0516001A67C2 /* exampleMacro */ = {
+			isa = PBXGroup;
+			children = (
+				20311A23196C0533001A67C2 /* LogMacros.h */,
+				20311A24196C0533001A67C2 /* LogMacros.m */,
+				20311A26196C054D001A67C2 /* SendMacros.h */,
+				20311A27196C054D001A67C2 /* SendMacros.m */,
+				20311A29196C056A001A67C2 /* waitForMacros.h */,
+				20311A2A196C056A001A67C2 /* waitForMacros.m */,
+				20311A2C196C0582001A67C2 /* TimeOutDecorator.h */,
+				20311A2D196C0582001A67C2 /* TimeOutDecorator.m */,
+				20311A2F196C059D001A67C2 /* FailSignalsDecorator.h */,
+				20311A30196C059D001A67C2 /* FailSignalsDecorator.m */,
+				20311A32196C05C0001A67C2 /* OnFailDecorator.h */,
+				20311A33196C05C0001A67C2 /* OnFailDecorator.m */,
+			);
+			name = exampleMacro;
+			sourceTree = "<group>";
+		};
 		203FA8711963D032000EC003 /* commonLogics */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,11 +261,8 @@
 		209BA021195AC46E00B304DE /* LangPro */ = {
 			isa = PBXGroup;
 			children = (
-				20311A1D196BF51B001A67C2 /* utils */,
-				203FA8781963E8B4000EC003 /* ObjcLogics */,
-				203FA8711963D032000EC003 /* commonLogics */,
-				209BA190196334A400B304DE /* testHierarchyLang */,
-				209BA18F1963349500B304DE /* testCaseLang */,
+				20311A22196C0516001A67C2 /* exampleMacro */,
+				20311A21196C050A001A67C2 /* TestSuite */,
 				209BA02A195AC46E00B304DE /* AppDelegate.h */,
 				209BA02B195AC46E00B304DE /* AppDelegate.m */,
 				209BA02D195AC46E00B304DE /* Main.storyboard */,
@@ -384,7 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20311A31196C059D001A67C2 /* FailSignalsDecorator.m in Sources */,
 				209BA053195AC75B00B304DE /* testCaseLang.lm in Sources */,
+				20311A34196C05C0001A67C2 /* OnFailDecorator.m in Sources */,
 				209BA051195AC75300B304DE /* testCaseLang.ym in Sources */,
 				20311A20196BF53C001A67C2 /* getSubclasses.m in Sources */,
 				209BA18B1962AC4B00B304DE /* tclGrammarLogics.m in Sources */,
@@ -396,10 +444,14 @@
 				20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */,
 				209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */,
 				20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */,
+				20311A28196C054D001A67C2 /* SendMacros.m in Sources */,
 				209BA1971963351800B304DE /* thlGrammarLogics.m in Sources */,
 				203FA88A19642F74000EC003 /* TestManager.m in Sources */,
+				20311A2E196C0582001A67C2 /* TimeOutDecorator.m in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
 				203FA883196400E3000EC003 /* executors.m in Sources */,
+				20311A2B196C056A001A67C2 /* waitForMacros.m in Sources */,
+				20311A25196C0533001A67C2 /* LogMacros.m in Sources */,
 				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
 				209BA02C195AC46E00B304DE /* AppDelegate.m in Sources */,
 				20311A1B196BEF84001A67C2 /* TestMacros.m in Sources */,

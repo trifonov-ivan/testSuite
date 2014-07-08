@@ -15,7 +15,9 @@ log("yes-yes #val")
 
 
 #firstTest val
-
+variable = getRandomString()
+second = variable
+log(second)
 #end 
 
 

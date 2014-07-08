@@ -64,6 +64,9 @@ static TestExecutor *executor = nil;
         TCLog(@"error with lookup a variable - incomplete name or variable");
         return -1;
     }
+    if (!variableMap[nodeName])
+        variableMap[nodeName] = [NSMutableArray new];
+
     int index = [variableMap[nodeName] indexOfObject:varName];
     if (index != NSNotFound)
     {
@@ -71,8 +74,6 @@ static TestExecutor *executor = nil;
     }
     else
     {
-        if (!variableMap[nodeName])
-            variableMap[nodeName] = [NSMutableArray new];
         VariableEntry *entry = [[VariableEntry alloc] init];
         entry.name = varName;
         entry.value = nil;
@@ -95,4 +96,9 @@ static TestExecutor *executor = nil;
     entry.value = [NSValue valueWithPointer:data];
 }
 
+
+-(void) fireSignal:(NSString*)signal withData:(id) data
+{
+    //TODO
+}
 @end

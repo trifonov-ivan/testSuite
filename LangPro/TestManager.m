@@ -98,6 +98,7 @@ static TestManager *manager = nil;
     {
         if (macrosClass != [TestMacros class])
         {
+            TCLog(@"registering macros class %@ for name %@",macrosClass, [macrosClass nameString]);
             TestMacros *macros = [[macrosClass alloc] init];
             embeddedMacroses[ [macrosClass nameString] ] = macros;
         }
