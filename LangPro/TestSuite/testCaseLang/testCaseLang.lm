@@ -1,0 +1,87 @@
+%{
+    #include <stdio.h>
+    #include <ctype.h>
+    #include <string.h>
+    #include "codeNode.h"
+    #include "testCaseLang.tab.h"
+%}
+%option prefix = "tc"
+
+comment     \/\*([^*]|\n)*\*\/
+digit       [0-9]
+ichar       [A-Z_a-z]
+integer     {digit}+
+newline     \n
+strchar     ([ ~]|\\n)
+identifier  {ichar}([0-9]|{ichar})*
+whitespace  [ \t]+
+float       ([+-]?{digit}+)?\.{digit}*(e?[+-]?{digit}+)?
+chrliteral  '([!*]|\\n)'
+nullstring  \"\"
+escquote    [^"]*\\\"[^"]*
+strliteral  \"[^"]*{escquote}*\"
+%%
+
+{integer}       {
+                    tclval.intValue = atoi(yytext);
+                    return INTEGER;
+                }
+
+"#end"          return END_TERMINAL;
+
+"->"            return *yytext;
+
+{float}         {
+                    tclval.doubleValue = atof(yytext);
+                    return DOUBLE;
+                }
+
+{strliteral}    {
+                    tclval.tokname = strdup(yytext);
+                    return STRING;
+                }
+
+{ichar}+        {
+                    tclval.tokname = strdup(yytext);
+                    return NAME_TOKEN;
+                }
+
+"<"             return LT;
+
+">"             return MT;
+
+"<="            return LE;
+
+">="            return ME;
+
+"=="            return EQ;
+
+"&&"            return AND;
+
+"||"            return OR;
+
+"-"             return MINUS;
+
+"+"             return PLUS;
+
+"*"             return MULTIPLY;
+
+"/"             return DIVIDE;
+
+[()=,;#]        return *yytext;
+
+[\n]            return NEW_LINE;
+
+{comment}       ;
+
+[ \t]           ;
+
+
+.               return ERROR;
+
+
+%%
+
+int yywrap(void) {
+    return 1;
+}

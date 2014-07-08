@@ -69,7 +69,9 @@ static TestExecutor *executor = nil;
     if (!variableMap[nodeName])
         variableMap[nodeName] = [NSMutableArray new];
 
-    int index = [variableMap[nodeName] indexOfObject:varName];
+    NSUInteger index = [variableMap[nodeName] indexOfObjectPassingTest:^(id obj, NSUInteger idx, BOOL *stop) {
+        return [((VariableEntry*)obj).name isEqualToString:varName];
+    }];
     if (index != NSNotFound)
     {
         return index;

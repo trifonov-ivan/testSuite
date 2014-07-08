@@ -48,6 +48,8 @@ void* prepareMacros(char *name)
 
 NSArray* arrayFromCodeNodeList(codeNodeList* array)
 {
+    if (!array)
+        return nil;
     codeNodeList *list = array->first;
     NSMutableArray *result = [NSMutableArray new];
     while (list) {
