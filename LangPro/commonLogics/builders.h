@@ -10,6 +10,9 @@
 #define LangPro_builders_h
 #include "commonLogics.h"
 
+
+#define STR(A) (A == NULL) ? nil : [NSString stringWithUTF8String:A]
+
 typedef enum { TEST_STATE_NOT_RUNNED, TEST_STATE_OK, TEST_STATE_FAILED, TEST_STATE_PARTLY } testExecutionState;
 
 typedef enum { TestListCaseNone, TestListCaseNode, TestListHierarchyNode } testListNode;
@@ -25,6 +28,7 @@ typedef struct TestCaseTag
     char                            *name;
     codeNodeList                    *list;
     codeNodeList                    *params;
+    codeNodeList                    *paramsValues;
     
     //hierarchy filled fields
     testListNode                    nextTestType;

@@ -28,3 +28,13 @@ void bridgeRegisterTestHierarchy(TestHierarchy *node)
 {
     [[TestManager sharedManager] registerTestHierarchy:node];
 }
+
+void* popVariableAtIndex(int index, TestCase* node)
+{
+    return [[TestManager sharedManager] popVariableAtIndex:index forCase:node];
+}
+
+void pushData(void* data, int index, TestCase* node)
+{
+    [[TestManager sharedManager] pushData:data toVariableAtIndex:index forCase:node];
+}

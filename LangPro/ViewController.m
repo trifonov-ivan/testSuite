@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "TestReader.h"
+#import "TestManager.h"
 @interface ViewController ()
 
 @end
@@ -22,6 +23,8 @@
     [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"testTestSuite" ofType:@"tc"]];
 //    [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"fastLogin" ofType:@"tc"]];
     [reader processTestHierarchyFromFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"th"]];
+    
+    [[[TestManager sharedManager] hierarchyForName:@"TestFlow"] run];
 }
 
 - (void)didReceiveMemoryWarning

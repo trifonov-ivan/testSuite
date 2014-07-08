@@ -16,4 +16,8 @@ void bridgeRegisterTestHierarchy(TestHierarchy *node);
 TestCase* bridgeLookupForTestCase(char *name);
 int bridgeLookUpForVariable(char *name, TestCase *node);
 
+void* popVariableAtIndex(int index, TestCase* node);
+void pushData(void* data, int index, TestCase* node);
+
+
 #endif

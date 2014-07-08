@@ -47,7 +47,7 @@ strliteral  \"[^"]*{escquote}*\"
                 }
 
 
-[(){}#]        return *yytext;
+[(){}#,]        return *yytext;
 
 [\n]            ;
 

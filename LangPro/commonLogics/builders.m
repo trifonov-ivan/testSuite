@@ -48,6 +48,7 @@ TestCase* copyCase(TestCase* source)
     tc->name = source->name;
     tc->nextTestType = source->nextTestType;
     tc->params = source->params;
+    tc->paramsValues = source->paramsValues;
     if (source->nextTestType != TestListCaseNone)
     {
         if (source->nextTestType == TestListCaseNode)
@@ -116,6 +117,7 @@ TestHierarchy* buildChildHierarchyFor(codeNodeList* exprs, TestCaseOpts opts, Te
     codeNodeList *c = exprs->first;
     TestCaseList *prevList = (TestCaseList*)malloc(sizeof(TestCaseList));
     prevList->first = prevList;
+    prevList->next = NULL;
     while (c != NULL)
     {
         codeNodeList *nodeList = c->listContent->first;
@@ -129,7 +131,7 @@ TestHierarchy* buildChildHierarchyFor(codeNodeList* exprs, TestCaseOpts opts, Te
                 TestCase *looked = lookupForTestCase(node->opr.operName);
                 if (looked == NULL)
                 {
-                    printf("ERROR: there is no testCase %s",node->opr.operName);
+                    TCLog(@"ERROR: there is no testCase %s",node->opr.operName);
                     return NULL;
                 }
                 TestCase *tmp = copyCase(looked);
@@ -144,7 +146,20 @@ TestHierarchy* buildChildHierarchyFor(codeNodeList* exprs, TestCaseOpts opts, Te
                     first = tmp;
                     prev = tmp;
                 }
-                tmp->params = node->opr.params;
+                tmp->paramsValues = node->opr.params;
+                
+                codeNodeList *values = tmp->paramsValues ? tmp->paramsValues->first : NULL;
+                codeNodeList *params = tmp->params ? tmp->params->first : NULL;
+                while (values != NULL && params != NULL)
+                {
+                    values = values->next;
+                    params = params->next;
+                }
+                if (values != NULL || params != NULL)
+                {
+                    TCLog(@"ERROR: incorrect params count at testCase %s call",node->opr.operName);
+                    return NULL;
+                }
             }
             if (node->type == typeOpts)
             {
@@ -162,11 +177,12 @@ TestHierarchy* buildChildHierarchyFor(codeNodeList* exprs, TestCaseOpts opts, Te
             TestCaseList *tmpList = (TestCaseList*)malloc(sizeof(TestCaseList));
             prevList->next = tmpList;
             tmpList->first = prevList->first;
+            tmpList->next = NULL;
             prevList = tmpList;
         }
         c = c->next;
     }
-    
+    h->testsList = prevList->first;
     return h;
 }
 
@@ -182,6 +198,7 @@ TestHierarchy* copyHierarchy(TestHierarchy* source)
         TestCaseList *c = source->testsList->first;
         TestCaseList *prev = (TestCaseList*)malloc(sizeof(TestCaseList));
         prev->first = prev;
+        prev->next = NULL;
         while (c != NULL)
         {
             prev->content = copyCase(c->content);
@@ -195,6 +212,7 @@ TestHierarchy* copyHierarchy(TestHierarchy* source)
             }
             c = c->next;
         }
+        copy->testsList = prev->first;
     }
     return copy;
 }

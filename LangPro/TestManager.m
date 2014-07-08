@@ -8,8 +8,6 @@
 
 #import "TestManager.h"
 
-#define STR(A) (A == NULL) ? nil : [NSString stringWithUTF8String:A]
-
 @interface VariableEntry : NSObject
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSValue *value;
@@ -79,6 +77,8 @@ static TestManager *manager = nil;
         TCLog(@"failed to register testCase: missing name");
         return;
     }
+    TestHierarchyObject *obj = [TestHierarchyObject hierarchyWithNode:node];
+    testHierarchies[obj.name] = obj;
 }
 
 -(TestCase*) lookupForTestCase:(char *) name
@@ -125,19 +125,22 @@ static TestManager *manager = nil;
     }
 }
 
--(void*) pushVariableAtIndex:(int) index forCase: (TestCase*) node
+-(void*) popVariableAtIndex:(int) index forCase: (TestCase*) node
 {
     NSString *nodeName = STR(node->name);
     VariableEntry *entry = variableMap[nodeName][index];
     return [entry.value pointerValue];
 }
 
--(void) popData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node
+-(void) pushData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node
 {
     NSString *nodeName = STR(node->name);
     VariableEntry *entry = variableMap[nodeName][index];
     entry.value = [NSValue valueWithPointer:data];
 }
 
-
+-(TestHierarchyObject *)hierarchyForName:(NSString*)name
+{
+    return [TestHierarchyObject hierarchyFromExistingHierarchy:testHierarchies[name]];
+}
 @end

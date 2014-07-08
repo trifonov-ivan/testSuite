@@ -8,9 +8,23 @@
 
 #include <stdio.h>
 #include "executors.h"
+#include "bridges.h"
 
 testExecutionState executeTestCase(TestCase *node)
 {
+    TCLog(@"executing testCase %@",STR(node->name));
+    /*fill params from call*/
+    codeNodeList *params = node->params ? node->params->first : NULL;
+    codeNodeList *values = node->paramsValues ? node->paramsValues->first : NULL;
+    while (params)
+    {
+        int val = params->content->var.i;
+        pushData(&(values->content->con), val, node);
+        params = params->next;
+        values = values->next;
+    }
+    
+    codeNodeList *expr = node->list;
     return TEST_STATE_OK;
 }
 
