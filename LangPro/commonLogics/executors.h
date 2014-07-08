@@ -12,6 +12,6 @@
 #include "builders.h"
 
 testExecutionState executeTestCase(TestCase *node);
-testExecutionState executeTestHierarchy(TestHierarchy *node);
+void executeTestHierarchy(TestHierarchy *node);
 
 #endif

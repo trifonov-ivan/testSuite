@@ -11,9 +11,48 @@
 
 testExecutionState executeTestCase(TestCase *node)
 {
-    return TEST_STATE_NOT_RUNNED;
+    return TEST_STATE_OK;
 }
-testExecutionState executeTestHierarchy(TestHierarchy *node)
+
+void iterateOverTestHierarchy(TestHierarchy *node, TestCaseOpts opts)
 {
-    return TEST_STATE_NOT_RUNNED;
+    TestCaseList *listItem = node->testsList->first;
+    while (listItem != NULL)
+    {
+        TestCase *tc = listItem->content;
+        while (tc != NULL)
+        {
+            tc->executionState = executeTestCase(tc);
+            if (tc->executionState == TEST_STATE_FAILED)
+            {
+                //we don't continue execution of hierarchy
+                break;
+            }
+            switch (tc->nextTestType) {
+                case TestListCaseNone:
+                    tc = NULL;
+                    break;
+                case TestListCaseNode:
+                {
+                    tc = tc->nextTest;
+                }
+                    break;
+                case TestListHierarchyNode:
+                {
+                    iterateOverTestHierarchy(tc->nextHierarchy, tc->nextHierarchy->opts);
+                    tc = NULL;
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+        //TODO interpret opts
+        listItem = listItem->next;
+    }
+}
+
+void executeTestHierarchy(TestHierarchy *node)
+{
+    iterateOverTestHierarchy(node, node->opts);
 }

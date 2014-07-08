@@ -38,12 +38,17 @@
 %left '='
 %%
 
+testSuite:
+    program
+    | testSuite new_line program
+    ;
+
 program:
     alias module END_TERMINAL           {finalizeTestCase($2);}
     ;
 
-module:
-    expr new_line                       {$$ = listWithParam($1);}
+module: /*this is not good, but it can be nil*/ {$$ = NULL;}
+    | expr new_line                     {$$ = listWithParam($1);}
     | module expr new_line              {$$ = addNodeToList($1,$2);}
     ;
 

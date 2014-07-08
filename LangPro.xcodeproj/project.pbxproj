@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20311A08196ACD1C001A67C2 /* testTestSuite.tc in Resources */ = {isa = PBXBuildFile; fileRef = 20311A07196ACD1C001A67C2 /* testTestSuite.tc */; };
 		203FA8741963D04E000EC003 /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8731963D04E000EC003 /* commonLogics.m */; };
 		203FA8811963FE6F000EC003 /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8801963FE6F000EC003 /* builders.m */; };
 		203FA883196400E3000EC003 /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA882196400E3000EC003 /* executors.m */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20311A07196ACD1C001A67C2 /* testTestSuite.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testTestSuite.tc; sourceTree = "<group>"; };
 		203FA8721963D046000EC003 /* commonLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonLogics.h; sourceTree = "<group>"; };
 		203FA8731963D04E000EC003 /* commonLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonLogics.m; sourceTree = "<group>"; };
 		203FA87F1963FE64000EC003 /* builders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builders.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				209BA029195AC46E00B304DE /* LangPro-Prefix.pch */,
 				209BA0CD196144E000B304DE /* example.tc */,
 				209BA1981963365700B304DE /* example.th */,
+				20311A07196ACD1C001A67C2 /* testTestSuite.tc */,
 				203FA88B1964312E000EC003 /* fastLogin.tc */,
 			);
 			path = "Supporting Files";
@@ -326,6 +329,7 @@
 				209BA034195AC46E00B304DE /* Images.xcassets in Resources */,
 				209BA026195AC46E00B304DE /* InfoPlist.strings in Resources */,
 				203FA88C1964312E000EC003 /* fastLogin.tc in Resources */,
+				20311A08196ACD1C001A67C2 /* testTestSuite.tc in Resources */,
 				209BA1991963365700B304DE /* example.th in Resources */,
 				209BA02F195AC46E00B304DE /* Main.storyboard in Resources */,
 				209BA0CE196144E000B304DE /* example.tc in Resources */,

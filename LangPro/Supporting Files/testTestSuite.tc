@@ -1,0 +1,46 @@
+#initTestSuite 
+
+send("load")
+
+waitFor("loaded",10)
+
+#end
+
+
+#simpleTest val
+
+log("yes-yes #val")
+
+#end
+
+
+#firstTest val
+
+#end 
+
+
+
+
+#anyTest
+/*there is a comment*/
+send("signal")
+
+waitFor("response")->timeOut(2)->failSignals("signalError")->onFail("log fail")
+
+#end
+
+#someTest
+
+#end
+
+#someAnotherTest
+#end
+
+#secondTest
+#end
+
+#thirdTest
+#end
+
+#fourthTest
+#end

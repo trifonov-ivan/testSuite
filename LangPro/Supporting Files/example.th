@@ -1,10 +1,10 @@
 #TestFlow
 
-fastLogin()
-    ->openMachine(293)
+initTestSuite()
+    ->simpleTest(42)
     ->(failOnFirst){
-        five_in_a_row(1)
-            ->shareOnFiveInARow()
+        firstTest(1)
+            ->anyTest()
             ->(){
                 someTest()
                 someAnotherTest()
