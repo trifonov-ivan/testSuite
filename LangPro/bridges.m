@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "bridges.h"
 #import "TestManager.h"
+#import "TestExecutor.h"
 void bridgeRegisterTestCase(TestCase *node)
 {
     [[TestManager sharedManager] registerTestCase:node];
@@ -21,7 +22,7 @@ TestCase* bridgeLookupForTestCase(char *name)
 
 int bridgeLookUpForVariable(char *name, TestCase *node)
 {
-    return [[TestManager sharedManager] lookUpForVariable:name forCase:node];
+    return [[TestExecutor sharedExecutor] lookUpForVariable:name forCase:node];
 }
 
 void bridgeRegisterTestHierarchy(TestHierarchy *node)
@@ -31,10 +32,10 @@ void bridgeRegisterTestHierarchy(TestHierarchy *node)
 
 void* popVariableAtIndex(int index, TestCase* node)
 {
-    return [[TestManager sharedManager] popVariableAtIndex:index forCase:node];
+    return [[TestExecutor sharedExecutor] popVariableAtIndex:index forCase:node];
 }
 
 void pushData(void* data, int index, TestCase* node)
 {
-    [[TestManager sharedManager] pushData:data toVariableAtIndex:index forCase:node];
+    [[TestExecutor sharedExecutor] pushData:data toVariableAtIndex:index forCase:node];
 }

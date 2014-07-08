@@ -17,9 +17,5 @@
 -(void) registerTestHierarchy:(TestHierarchy*) node;
 -(TestCase*) lookupForTestCase:(char *) name;
 
--(int) lookUpForVariable:(char*) name forCase: (TestCase*) node;
--(void*) popVariableAtIndex:(int) index forCase: (TestCase*) node;
--(void) pushData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node;
-
 -(TestHierarchyObject *)hierarchyForName:(NSString*)name;
 @end

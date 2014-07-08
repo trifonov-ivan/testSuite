@@ -10,6 +10,8 @@
 		20311A08196ACD1C001A67C2 /* testTestSuite.tc in Resources */ = {isa = PBXBuildFile; fileRef = 20311A07196ACD1C001A67C2 /* testTestSuite.tc */; };
 		20311A12196BE0DB001A67C2 /* TestHierarchyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A11196BE0DB001A67C2 /* TestHierarchyObject.m */; };
 		20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A14196BE0E3001A67C2 /* TestClassObject.m */; };
+		20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A17196BEEFF001A67C2 /* TestExecutor.m */; };
+		20311A1B196BEF84001A67C2 /* TestMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A1A196BEF84001A67C2 /* TestMacros.m */; };
 		203FA8741963D04E000EC003 /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8731963D04E000EC003 /* commonLogics.m */; };
 		203FA8811963FE6F000EC003 /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8801963FE6F000EC003 /* builders.m */; };
 		203FA883196400E3000EC003 /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA882196400E3000EC003 /* executors.m */; };
@@ -57,6 +59,10 @@
 		20311A11196BE0DB001A67C2 /* TestHierarchyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHierarchyObject.m; sourceTree = "<group>"; };
 		20311A13196BE0E3001A67C2 /* TestClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClassObject.h; sourceTree = "<group>"; };
 		20311A14196BE0E3001A67C2 /* TestClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClassObject.m; sourceTree = "<group>"; };
+		20311A16196BEEFF001A67C2 /* TestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestExecutor.h; sourceTree = "<group>"; };
+		20311A17196BEEFF001A67C2 /* TestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExecutor.m; sourceTree = "<group>"; };
+		20311A19196BEF84001A67C2 /* TestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMacros.h; sourceTree = "<group>"; };
+		20311A1A196BEF84001A67C2 /* TestMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMacros.m; sourceTree = "<group>"; };
 		203FA8721963D046000EC003 /* commonLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonLogics.h; sourceTree = "<group>"; };
 		203FA8731963D04E000EC003 /* commonLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonLogics.m; sourceTree = "<group>"; };
 		203FA87F1963FE64000EC003 /* builders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builders.h; sourceTree = "<group>"; };
@@ -147,6 +153,12 @@
 				203FA88619642EAF000EC003 /* bridges.m */,
 				203FA88819642F74000EC003 /* TestManager.h */,
 				203FA88919642F74000EC003 /* TestManager.m */,
+				209BA0CA1961400C00B304DE /* TestReader.h */,
+				209BA0CB1961400C00B304DE /* TestReader.m */,
+				20311A16196BEEFF001A67C2 /* TestExecutor.h */,
+				20311A17196BEEFF001A67C2 /* TestExecutor.m */,
+				20311A19196BEF84001A67C2 /* TestMacros.h */,
+				20311A1A196BEF84001A67C2 /* TestMacros.m */,
 				20311A10196BE0DB001A67C2 /* TestHierarchyObject.h */,
 				20311A11196BE0DB001A67C2 /* TestHierarchyObject.m */,
 				20311A13196BE0E3001A67C2 /* TestClassObject.h */,
@@ -197,8 +209,6 @@
 				209BA02D195AC46E00B304DE /* Main.storyboard */,
 				209BA030195AC46E00B304DE /* ViewController.h */,
 				209BA031195AC46E00B304DE /* ViewController.m */,
-				209BA0CA1961400C00B304DE /* TestReader.h */,
-				209BA0CB1961400C00B304DE /* TestReader.m */,
 				209BA033195AC46E00B304DE /* Images.xcassets */,
 				209BA022195AC46E00B304DE /* Supporting Files */,
 			);
@@ -371,12 +381,14 @@
 				203FA8811963FE6F000EC003 /* builders.m in Sources */,
 				20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */,
 				209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */,
+				20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */,
 				209BA1971963351800B304DE /* thlGrammarLogics.m in Sources */,
 				203FA88A19642F74000EC003 /* TestManager.m in Sources */,
 				209BA032195AC46E00B304DE /* ViewController.m in Sources */,
 				203FA883196400E3000EC003 /* executors.m in Sources */,
 				209BA0CC1961400C00B304DE /* TestReader.m in Sources */,
 				209BA02C195AC46E00B304DE /* AppDelegate.m in Sources */,
+				20311A1B196BEF84001A67C2 /* TestMacros.m in Sources */,
 				209BA028195AC46E00B304DE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

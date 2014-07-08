@@ -8,29 +8,12 @@
 
 #import "TestManager.h"
 
-@interface VariableEntry : NSObject
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSValue *value;
-@end
-
-@implementation VariableEntry
-
--(BOOL)isEqual:(id)object
-{
-    if ([object isKindOfClass:[NSString class]])
-        return [self.name isEqualToString:object];
-    return [super isEqual:object];
-}
-
-@end
-
 static TestManager *manager = nil;
 
 @interface TestManager()
 {
     NSMutableDictionary *testCases;
     NSMutableDictionary *testHierarchies;
-    NSMutableDictionary *variableMap;
 }
 @end
 
@@ -42,7 +25,6 @@ static TestManager *manager = nil;
     if (self) {
         testCases = [NSMutableDictionary new];
         testHierarchies = [NSMutableDictionary new];
-        variableMap = [NSMutableDictionary new];
     }
     return self;
 }
@@ -97,46 +79,6 @@ static TestManager *manager = nil;
         return NULL;
     }
     return (TestCase*)[value pointerValue];
-}
-
--(int) lookUpForVariable:(char*) name forCase: (TestCase*) node
-{
-    NSString *varName = STR(name);
-    NSString *nodeName = STR(node->name);
-    if (!varName || !nodeName)
-    {
-        TCLog(@"error with lookup a variable - incomplete name or variable");
-        return -1;
-    }
-    int index = [variableMap[nodeName] indexOfObject:varName];
-    if (index != NSNotFound)
-    {
-        return index;
-    }
-    else
-    {
-        if (!variableMap[nodeName])
-            variableMap[nodeName] = [NSMutableArray new];
-        VariableEntry *entry = [[VariableEntry alloc] init];
-        entry.name = varName;
-        entry.value = nil;
-        [variableMap[nodeName] addObject:entry];
-        return [variableMap[nodeName] count] - 1;
-    }
-}
-
--(void*) popVariableAtIndex:(int) index forCase: (TestCase*) node
-{
-    NSString *nodeName = STR(node->name);
-    VariableEntry *entry = variableMap[nodeName][index];
-    return [entry.value pointerValue];
-}
-
--(void) pushData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node
-{
-    NSString *nodeName = STR(node->name);
-    VariableEntry *entry = variableMap[nodeName][index];
-    entry.value = [NSValue valueWithPointer:data];
 }
 
 -(TestHierarchyObject *)hierarchyForName:(NSString*)name
