@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #include "bridges.h"
 
+@class TestMacros;
 @interface TestExecutor : NSObject
 
 +(TestExecutor*) sharedExecutor;
@@ -18,5 +19,9 @@
 -(void) pushData:(void*) data toVariableAtIndex:(int) index forCase: (TestCase*) node;
 
 -(void) fireSignal:(NSString*)signal withData:(id) data;
+
+-(TestMacros*) instantiateTestMacrosForName:(char*)name;
+-(id) runTestMacros:(TestMacros*)macros withParams:(NSArray*)params success:(BOOL*)success;
+-(void) applyDecorator:(char*)name withParams:(NSArray*)params toMacros:(TestMacros*)macros;
 
 @end

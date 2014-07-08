@@ -22,6 +22,6 @@ void pushData(void* data, int index, TestCase* node);
 
 void* prepareMacros(char *name);
 void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params);
-void* runMacros(void* macros, codeNodeList* params);
+void* runMacros(void* macros, codeNodeList* params, bool* success);
 
 #endif

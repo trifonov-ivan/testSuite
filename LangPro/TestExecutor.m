@@ -7,6 +7,8 @@
 //
 
 #import "TestExecutor.h"
+#import "TestManager.h"
+#import "TestMacros.h"
 
 @interface VariableEntry : NSObject
 @property (nonatomic, strong) NSString *name;
@@ -101,4 +103,24 @@ static TestExecutor *executor = nil;
 {
     //TODO
 }
+
+-(TestMacros*) instantiateTestMacrosForName:(char*)name
+{
+    NSString *mName = STR(name);
+    return [[TestManager sharedManager] macrosForName:mName];
+}
+
+-(id) runTestMacros:(TestMacros*)macros withParams:(NSArray*)params success:(BOOL*)success
+{
+    return [macros executeWithParams:params success:success];
+}
+
+-(void) applyDecorator:(char*)name withParams:(NSArray*)params toMacros:(TestMacros*)macros
+{
+    NSString *mName = STR(name);
+    TestMacros *decorator = [[TestManager sharedManager] macrosForName:mName];
+    [decorator applyToMacros:macros withParams:params];
+}
+
+
 @end

@@ -43,17 +43,58 @@ void pushData(void* data, int index, TestCase* node)
 
 void* prepareMacros(char *name)
 {
-    NSLog(@"preparing macros %s",name);
-    return NULL;
+    return (__bridge void*)[[TestExecutor sharedExecutor] instantiateTestMacrosForName:name];
+}
+
+NSArray* arrayFromCodeNodeList(codeNodeList* array)
+{
+    codeNodeList *list = array->first;
+    NSMutableArray *result = [NSMutableArray new];
+    while (list) {
+        codeNode *node = list->content;
+        if (node->type == typeConst)
+        {
+            switch (node->con.type) {
+                case constInt:
+                    [result addObject:@(node->con.intVal)];
+                    break;
+                case constDouble:
+                    [result addObject:@(node->con.dblVal)];
+                    break;
+                case constString:
+                    [result addObject:STR(node->con.stringVal)];
+                    break;
+                default:
+                    break;
+            }
+        }
+        list = list->next;
+    }
+    
+    return [NSArray arrayWithArray:result];
+}
+
+codeNode* calculationResultFromID(id data)
+{
+    if ([data isKindOfClass:[NSString class]])
+    {
+        return codeNodeForStringConstant((char*)[data UTF8String]);
+    }
+    else
+    {
+        return codeNodeForDoubleConstant([data doubleValue]);
+    }
 }
 
 void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params)
 {
-    NSLog(@"decorating with macros %s",name);
+//    NSLog(@"decorating with macros %s",name);
+    [[TestExecutor sharedExecutor] applyDecorator:name withParams:arrayFromCodeNodeList(params) toMacros:(__bridge TestMacros*)macros];
 }
 
-void* runMacros(void* macros, codeNodeList* params)
+void* runMacros(void* macros, codeNodeList* params, bool* success)
 {
-    NSLog(@"run macros");
-    return NULL;
+    return calculationResultFromID([[TestExecutor sharedExecutor] runTestMacros:(__bridge TestMacros*)macros
+                                                                     withParams:arrayFromCodeNodeList(params)
+                                                                        success:(BOOL*)success]);
 }
