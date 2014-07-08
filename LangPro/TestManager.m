@@ -7,6 +7,8 @@
 //
 
 #import "TestManager.h"
+#import "getSubclasses.h"
+#import "TestMacros.h"
 
 static TestManager *manager = nil;
 
@@ -14,6 +16,7 @@ static TestManager *manager = nil;
 {
     NSMutableDictionary *testCases;
     NSMutableDictionary *testHierarchies;
+    NSMutableDictionary *embeddedMacroses;
 }
 @end
 
@@ -25,6 +28,8 @@ static TestManager *manager = nil;
     if (self) {
         testCases = [NSMutableDictionary new];
         testHierarchies = [NSMutableDictionary new];
+        embeddedMacroses = [NSMutableDictionary new];
+        [self registerMacroses];
     }
     return self;
 }
@@ -84,5 +89,23 @@ static TestManager *manager = nil;
 -(TestHierarchyObject *)hierarchyForName:(NSString*)name
 {
     return [TestHierarchyObject hierarchyFromExistingHierarchy:testHierarchies[name]];
+}
+
+-(void) registerMacroses
+{
+    NSArray *macrosClasses = ClassGetSubclasses([TestMacros class]);
+    for (Class macrosClass in macrosClasses)
+    {
+        if (macrosClass != [TestMacros class])
+        {
+            TestMacros *macros = [[macrosClass alloc] init];
+            embeddedMacroses[ [macrosClass nameString] ] = macros;
+        }
+    }
+}
+
+-(TestMacros*) macrosForName:(NSString*)name
+{
+    return embeddedMacroses[name];
 }
 @end

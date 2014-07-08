@@ -10,6 +10,7 @@
 #include "bridges.h"
 #import "TestManager.h"
 #import "TestExecutor.h"
+
 void bridgeRegisterTestCase(TestCase *node)
 {
     [[TestManager sharedManager] registerTestCase:node];

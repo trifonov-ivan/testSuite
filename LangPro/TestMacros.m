@@ -10,4 +10,25 @@
 
 @implementation TestMacros
 
++(NSString*)nameString
+{
+    NSAssert(true,@"must be implemented in subclass");
+    return nil;
+}
+
+-(void) applyToMacros:(TestMacros*)macros withParams:(NSArray*)params
+{
+    NSAssert(true,@"must be implemented in subclass");
+}
+
++(NSArray*)possibleDecoratorNames
+{
+    return nil;
+}
+-(void) executeWithParams:(NSArray*)params
+{
+    NSAssert(true,@"must be implemented in subclass");
+}
+
+
 @end

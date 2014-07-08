@@ -10,12 +10,14 @@
 #include "bridges.h"
 #import "TestHierarchyObject.h"
 
+@class TestMacros;
 @interface TestManager : NSObject
 
 +(TestManager*) sharedManager;
 -(void) registerTestCase: (TestCase *) node;
 -(void) registerTestHierarchy:(TestHierarchy*) node;
 -(TestCase*) lookupForTestCase:(char *) name;
-
 -(TestHierarchyObject *)hierarchyForName:(NSString*)name;
+-(TestMacros*) macrosForName:(NSString*)name;
+
 @end

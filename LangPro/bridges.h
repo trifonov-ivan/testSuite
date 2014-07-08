@@ -19,5 +19,4 @@ int bridgeLookUpForVariable(char *name, TestCase *node);
 void* popVariableAtIndex(int index, TestCase* node);
 void pushData(void* data, int index, TestCase* node);
 
-
 #endif

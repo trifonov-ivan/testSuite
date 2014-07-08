@@ -12,6 +12,7 @@
 		20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A14196BE0E3001A67C2 /* TestClassObject.m */; };
 		20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A17196BEEFF001A67C2 /* TestExecutor.m */; };
 		20311A1B196BEF84001A67C2 /* TestMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A1A196BEF84001A67C2 /* TestMacros.m */; };
+		20311A20196BF53C001A67C2 /* getSubclasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A1F196BF53C001A67C2 /* getSubclasses.m */; };
 		203FA8741963D04E000EC003 /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8731963D04E000EC003 /* commonLogics.m */; };
 		203FA8811963FE6F000EC003 /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA8801963FE6F000EC003 /* builders.m */; };
 		203FA883196400E3000EC003 /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 203FA882196400E3000EC003 /* executors.m */; };
@@ -63,6 +64,8 @@
 		20311A17196BEEFF001A67C2 /* TestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExecutor.m; sourceTree = "<group>"; };
 		20311A19196BEF84001A67C2 /* TestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMacros.h; sourceTree = "<group>"; };
 		20311A1A196BEF84001A67C2 /* TestMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMacros.m; sourceTree = "<group>"; };
+		20311A1E196BF530001A67C2 /* getSubclasses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getSubclasses.h; sourceTree = "<group>"; };
+		20311A1F196BF53C001A67C2 /* getSubclasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSubclasses.m; sourceTree = "<group>"; };
 		203FA8721963D046000EC003 /* commonLogics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commonLogics.h; sourceTree = "<group>"; };
 		203FA8731963D04E000EC003 /* commonLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonLogics.m; sourceTree = "<group>"; };
 		203FA87F1963FE64000EC003 /* builders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = builders.h; sourceTree = "<group>"; };
@@ -132,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20311A1D196BF51B001A67C2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				20311A1E196BF530001A67C2 /* getSubclasses.h */,
+				20311A1F196BF53C001A67C2 /* getSubclasses.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
 		203FA8711963D032000EC003 /* commonLogics */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +212,7 @@
 		209BA021195AC46E00B304DE /* LangPro */ = {
 			isa = PBXGroup;
 			children = (
+				20311A1D196BF51B001A67C2 /* utils */,
 				203FA8781963E8B4000EC003 /* ObjcLogics */,
 				203FA8711963D032000EC003 /* commonLogics */,
 				209BA190196334A400B304DE /* testHierarchyLang */,
@@ -373,6 +386,7 @@
 			files = (
 				209BA053195AC75B00B304DE /* testCaseLang.lm in Sources */,
 				209BA051195AC75300B304DE /* testCaseLang.ym in Sources */,
+				20311A20196BF53C001A67C2 /* getSubclasses.m in Sources */,
 				209BA18B1962AC4B00B304DE /* tclGrammarLogics.m in Sources */,
 				203FA88719642EAF000EC003 /* bridges.m in Sources */,
 				209BA194196334F000B304DE /* testHierarchyLang.lm in Sources */,
