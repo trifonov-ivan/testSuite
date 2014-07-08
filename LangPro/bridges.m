@@ -41,7 +41,19 @@ void pushData(void* data, int index, TestCase* node)
     [[TestExecutor sharedExecutor] pushData:data toVariableAtIndex:index forCase:node];
 }
 
-void prepareMacros(char *name, codeNodeList *params)
+void* prepareMacros(char *name)
 {
-    
+    NSLog(@"preparing macros %s",name);
+    return NULL;
+}
+
+void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params)
+{
+    NSLog(@"decorating with macros %s",name);
+}
+
+void* runMacros(void* macros, codeNodeList* params)
+{
+    NSLog(@"run macros");
+    return NULL;
 }

@@ -49,7 +49,7 @@ codeNode* decorateCodeNodeWithCodeNode(codeNode *source, codeNode *decorateNode)
         node = source;
         list = source->opts.childs;
     }
-    source->opts.childs = addNodeToList(list, decorateNode);
+    node->opts.childs = addNodeToList(list, decorateNode);
     return node;
 }
 

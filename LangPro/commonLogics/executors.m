@@ -37,7 +37,47 @@ codeNodeList* processParamList(codeNodeList* node, TestCase *test, bool *success
 
 void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
 {
-    //TODO
+    switch (node->type) {
+        case typeOpts:
+        {
+            codeNodeList *params = node->opts.childs->first;
+            void *macro = prepareMacros(params->content->opr.operName);
+            params = params->next;
+            while (params)
+            {
+                applyDecoratorToMacros(macro, params->content->opr.operName, params->content->opr.params);
+                params = params->next;
+            }
+            params = node->opts.childs->first;
+            return runMacros(macro, params->content->opr.params);
+        }
+            break;
+        case typeFunc:
+        {
+            if (node->opr.operName)
+            {
+                void *macro = prepareMacros(node->opr.operName);
+                return runMacros(macro, node->opr.params);
+            } else
+            {
+                //TODO mathematical evaluations
+                TCLog(@"Math");
+            }
+        }
+            break;
+        case typeConst:
+        {
+            return node;
+        }
+            break;
+        case typeVariable:
+        {
+            return popVariableAtIndex(node->var.i, test);
+        }
+            break;
+        default:
+            break;
+    }
     return NULL;
 }
 
