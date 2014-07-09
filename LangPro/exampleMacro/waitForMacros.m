@@ -25,7 +25,6 @@
     self.successSignals = params;
     succeeded = NO;
     ended = NO;
-    [self performSelectorInBackground:@selector(work) withObject:nil];
     sem = dispatch_semaphore_create(0);
     dispatch_time_t timeout = self.timeout.doubleValue*NSEC_PER_SEC;
     dispatch_semaphore_wait(sem, dispatch_time(DISPATCH_TIME_NOW, timeout));
@@ -36,16 +35,6 @@
     }
     *success = succeeded;
     return nil;
-}
-
--(void) work
-{
-//    [self performSelector:@selector(fetchedSignal:) withObject:@"signalError" afterDelay:1.0];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self fetchedSignal:@"signalError"];
-        });
-    });
 }
 
 -(void) fetchedSignal:(NSString*)signal
