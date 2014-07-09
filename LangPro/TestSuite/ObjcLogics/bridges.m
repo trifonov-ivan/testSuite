@@ -46,7 +46,7 @@ void* prepareMacros(char *name)
     return (__bridge void*)[[TestExecutor sharedExecutor] instantiateTestMacrosForName:name];
 }
 
-NSArray* arrayFromCodeNodeList(codeNodeList* array)
+NSArray* arrayFromCodeNodeList(codeNodeList* array,TestCase *test)
 {
     if (!array)
         return nil;
@@ -64,7 +64,46 @@ NSArray* arrayFromCodeNodeList(codeNodeList* array)
                     [result addObject:@(node->con.dblVal)];
                     break;
                 case constString:
-                    [result addObject:STR(node->con.stringVal)];
+                {
+                    NSString *resultString = STR(node->con.stringVal);
+                    if ([resultString rangeOfString:@"#"].length > 0)
+                    {
+                        NSError *error = NULL;
+                        NSMutableArray *variables = [NSMutableArray new];
+                        NSRegularExpression *regex = [NSRegularExpression
+                                                      regularExpressionWithPattern:@"\\#[A-Za_z0_9_]*"
+                                                      options:NSRegularExpressionCaseInsensitive
+                                                      error:&error];
+                        [regex enumerateMatchesInString:resultString options:0 range:NSMakeRange(0, [resultString length]) usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop){
+                            [variables addObject:[resultString substringWithRange:match.range]];
+                        }];
+                    
+                    
+                        for (NSString *varExt in variables)
+                        {
+                            int index = lookupForVariableNameForCase((char*)[varExt UTF8String] + 1, test);
+                            codeNode *value = popVariableAtIndex(index,test);
+                            NSString *replace = @"";
+                            if (value->type == typeConst)
+                            {
+                                switch (value->con.type) {
+                                    case constInt:
+                                        replace = @(value->con.intVal).stringValue;
+                                        break;
+                                    case constDouble:
+                                        replace = @(value->con.dblVal).stringValue;
+                                        break;
+                                    case constString:
+                                        replace = STR(value->con.stringVal);
+                                        break;
+                                }
+                            }
+                            resultString = [resultString stringByReplacingOccurrencesOfString:varExt withString:replace];
+                        }
+                    
+                    }
+                    [result addObject:resultString];
+                }
                     break;
                 default:
                     break;
@@ -88,15 +127,15 @@ codeNode* calculationResultFromID(id data)
     }
 }
 
-void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params)
+void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params, TestCase *test)
 {
 //    NSLog(@"decorating with macros %s",name);
-    [[TestExecutor sharedExecutor] applyDecorator:name withParams:arrayFromCodeNodeList(params) toMacros:(__bridge TestMacros*)macros];
+    [[TestExecutor sharedExecutor] applyDecorator:name withParams:arrayFromCodeNodeList(params,test) toMacros:(__bridge TestMacros*)macros];
 }
 
-void* runMacros(void* macros, codeNodeList* params, bool* success)
+void* runMacros(void* macros, codeNodeList* params, bool* success, TestCase *test)
 {
     return calculationResultFromID([[TestExecutor sharedExecutor] runTestMacros:(__bridge TestMacros*)macros
-                                                                     withParams:arrayFromCodeNodeList(params)
+                                                                     withParams:arrayFromCodeNodeList(params,test)
                                                                         success:(BOOL*)success]);
 }

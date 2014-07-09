@@ -51,11 +51,11 @@ void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
             {
                 codeNodeList *preParams = params->content->opr.params;
                 preParams = processParamList(preParams, test, success);
-                applyDecoratorToMacros(macro, params->content->opr.operName, preParams);
+                applyDecoratorToMacros(macro, params->content->opr.operName, preParams,test);
                 params = params->next;
             }
             params = node->opts.childs->first;
-            return runMacros(macro, params->content->opr.params, success);
+            return runMacros(macro, params->content->opr.params, success, test);
         }
             break;
         case typeFunc:
@@ -65,7 +65,7 @@ void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
                 void *macro = prepareMacros(node->opr.operName);
                 codeNodeList *preParams = node->opr.params;
                 preParams = processParamList(preParams, test, success);
-                return runMacros(macro, preParams, success);
+                return runMacros(macro, preParams, success, test);
             } else
             {
                 //TODO mathematical evaluations
@@ -167,7 +167,7 @@ testExecutionState executeTestCase(TestCase *node)
     while (params)
     {
         int val = params->content->var.i;
-        pushData(&(values->content->con), val, node);
+        pushData(values->content, val, node);
         params = params->next;
         values = values->next;
     }

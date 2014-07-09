@@ -10,6 +10,12 @@
 
 @implementation LogMacros
 
+-(id)executeWithParams:(NSArray *)params success:(BOOL *)success
+{
+    NSLog(@"TESTLOG: %@",[params firstObject]);
+    return nil;
+}
+
 +(NSString *)nameString
 {
     return @"log";

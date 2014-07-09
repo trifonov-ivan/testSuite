@@ -73,6 +73,11 @@ int lookupForVariableName(char *name)
     return bridgeLookUpForVariable(name, currentCase);
 }
 
+int lookupForVariableNameForCase(char *name, TestCase *test)
+{
+    return bridgeLookUpForVariable(name, test);
+}
+
 TestCase* lookupForTestCase(char *tcName)
 {
     return bridgeLookupForTestCase(tcName);

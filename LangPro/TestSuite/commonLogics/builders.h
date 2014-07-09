@@ -62,6 +62,7 @@ TestCase* getCurrentProcessedTestCase();
 TestCase* forwardTestCaseInternal(char *name);
 TestCase* registerTestCaseInternal(codeNodeList *paramList);
 int lookupForVariableName(char *name);
+int lookupForVariableNameForCase(char *name, TestCase *test);
 TestCase* finalizeTestCaseInternal(codeNodeList *linesList);
 TestCase* copyCase(TestCase* source);
 
