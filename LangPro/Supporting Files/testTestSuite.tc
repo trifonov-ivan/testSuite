@@ -45,6 +45,9 @@ log("we have #paramA and #paramB")
 #end
 
 #fourthTest
+foo = 1 + 2
+bar = foo * 3
+failOn(bar == 9, "calculation is failed")
 #end
 
 #mathTest
@@ -55,5 +58,7 @@ failOn(NOT((1 + 2) > 5), "1 + 2 > 5 : true")
 failOn(NOT("abc" == "def"), "true equality of abc and def")
 
 failOn("abc" == "abc", "false equality of abc and abc")
+
+failOn(1 == 2, "compeletly wrong equality")
 
 #end

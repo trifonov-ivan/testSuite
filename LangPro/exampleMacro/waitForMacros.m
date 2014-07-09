@@ -36,7 +36,7 @@
     return nil;
 }
 
--(void) fetchedSignal:(NSString*)signal
+-(void) fetchedSignal:(NSString*)signal withData:(id) data
 {
     TCLog(@"fetched signal:%@",signal);
     if ([self.successSignals containsObject:signal])

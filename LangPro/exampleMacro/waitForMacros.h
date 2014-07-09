@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSString *failMessage;
 @property (nonatomic, strong) NSArray *failSignals;
 
+-(void) fetchedSignal:(NSString*)signal withData:(id) data;
+
 @end
