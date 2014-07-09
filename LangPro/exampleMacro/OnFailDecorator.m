@@ -9,6 +9,17 @@
 #import "OnFailDecorator.h"
 
 @implementation OnFailDecorator
+
+-(void)applyToMacros:(TestMacros *)macros withParams:(NSArray *)params
+{
+    @try {
+        [macros setValue:[params firstObject] forKey:@"failMessage"];
+    }
+    @catch (NSException *exception) {
+        //nevermind..
+    }
+}
+
 +(NSString *)nameString
 {
     return @"onFail";

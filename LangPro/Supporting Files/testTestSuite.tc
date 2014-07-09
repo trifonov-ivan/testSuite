@@ -2,8 +2,6 @@
 
 send("load")
 
-waitFor("loaded",10)
-
 #end
 
 
@@ -31,7 +29,9 @@ waitFor("response")->timeOut(2)->failSignals("signalError")->onFail("log fail")
 
 #end
 
-#someTest
+#someTest paramA,paramB
+
+log("we have #paramA and #paramB")
 
 #end
 

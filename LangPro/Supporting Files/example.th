@@ -6,7 +6,7 @@ initTestSuite()
         firstTest(1)
             ->anyTest()
             ->(){
-                someTest()
+                someTest(12,"abs")
                 someAnotherTest()
             }
         secondTest()

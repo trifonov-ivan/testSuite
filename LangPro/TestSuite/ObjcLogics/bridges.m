@@ -66,6 +66,7 @@ NSArray* arrayFromCodeNodeList(codeNodeList* array,TestCase *test)
                 case constString:
                 {
                     NSString *resultString = STR(node->con.stringVal);
+                    resultString = [resultString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
                     if ([resultString rangeOfString:@"#"].length > 0)
                     {
                         NSError *error = NULL;

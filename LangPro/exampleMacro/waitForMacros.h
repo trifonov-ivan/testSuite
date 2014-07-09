@@ -10,4 +10,9 @@
 
 @interface waitForMacros : TestMacros
 
+@property (nonatomic, strong) NSArray *successSignals;
+@property (nonatomic, strong) NSNumber *timeout;
+@property (nonatomic, strong) NSString *failMessage;
+@property (nonatomic, strong) NSArray *failSignals;
+
 @end

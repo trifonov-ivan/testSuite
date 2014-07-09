@@ -9,6 +9,18 @@
 #import "FailSignalsDecorator.h"
 
 @implementation FailSignalsDecorator
+
+-(void)applyToMacros:(TestMacros *)macros withParams:(NSArray *)params
+{
+    @try {
+        [macros setValue:params forKey:@"failSignals"];
+    }
+    @catch (NSException *exception) {
+        //nevermind..
+    }
+}
+
+
 +(NSString *)nameString
 {
     return @"failSignals";

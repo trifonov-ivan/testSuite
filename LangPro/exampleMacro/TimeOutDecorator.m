@@ -9,6 +9,17 @@
 #import "TimeOutDecorator.h"
 
 @implementation TimeOutDecorator
+
+-(void)applyToMacros:(TestMacros *)macros withParams:(NSArray *)params
+{
+    @try {
+        [macros setValue:[params firstObject] forKey:@"timeout"];
+    }
+    @catch (NSException *exception) {
+        //nevermind..
+    }
+}
+
 +(NSString *)nameString
 {
     return @"timeOut";

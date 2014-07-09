@@ -23,7 +23,12 @@
     [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"testTestSuite" ofType:@"tc"]];
 //    [reader processTestCaseFromFile:[[NSBundle mainBundle] pathForResource:@"fastLogin" ofType:@"tc"]];
     [reader processTestHierarchyFromFile:[[NSBundle mainBundle] pathForResource:@"example" ofType:@"th"]];
-    
+
+    [self performSelectorInBackground:@selector(run) withObject:nil];
+}
+
+-(void) run
+{
     [[[TestManager sharedManager] hierarchyForName:@"TestFlow"] run];
 }
 
