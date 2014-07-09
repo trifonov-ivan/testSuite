@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "builders.h"
 
 @interface TestClassObject : NSObject
 
+@property (nonatomic, assign) TestCase *test;
+@property (nonatomic, weak) TestClassObject *parentTC;
+@property (nonatomic, strong) TestClassObject *followingTC;
+@property (nonatomic, strong) NSArray *childTC;
+@property (nonatomic, strong) NSString *name;
+-(void) buildFromHierarchy:(TestHierarchy*)hierarchy;
 @end

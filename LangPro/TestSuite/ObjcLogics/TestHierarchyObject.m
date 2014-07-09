@@ -20,6 +20,8 @@
 {
     TestHierarchyObject *obj = [[TestHierarchyObject alloc] init];
     obj.hierarchy = hierarchy;
+    obj.rootCase = [[TestClassObject alloc] init];
+    [obj.rootCase buildFromHierarchy:hierarchy];
     return obj;
 }
 +(TestHierarchyObject*)hierarchyFromExistingHierarchy:(TestHierarchyObject*)hierarchy

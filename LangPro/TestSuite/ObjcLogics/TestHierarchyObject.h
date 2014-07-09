@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "builders.h"
+#import "TestClassObject.h"
+
 @interface TestHierarchyObject : NSObject
 
 @property (nonatomic, assign) TestHierarchy *hierarchy;
+@property (nonatomic, strong) TestClassObject *rootCase;
 @property (nonatomic, strong) NSString *name;
 
 +(TestHierarchyObject*)hierarchyWithNode:(TestHierarchy*)hierarchy;
