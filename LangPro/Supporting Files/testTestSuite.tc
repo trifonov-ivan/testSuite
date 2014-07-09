@@ -13,9 +13,9 @@ log("yes-yes #val")
 
 
 #firstTest val
-variable = getRandomString()
+/*variable = getRandomString()
 second = variable
-log(second)
+log(second)*/
 #end 
 
 
@@ -25,7 +25,7 @@ log(second)
 /*there is a comment*/
 send("signal")
 
-waitFor("response")->timeOut(2)->failSignals("signalError")->onFail("log fail")
+waitFor("response")->timeOut(0.2)->failSignals("signalError")->onFail("log fail")
 
 #end
 
@@ -45,4 +45,15 @@ log("we have #paramA and #paramB")
 #end
 
 #fourthTest
+#end
+
+#mathTest
+failOn(((1 + 2) < 5),"1 + 2 < 5 : false")
+
+failOn(NOT((1 + 2) > 5), "1 + 2 > 5 : true")
+
+failOn(NOT("abc" == "def"), "true equality of abc and def")
+
+failOn("abc" == "abc", "false equality of abc and abc")
+
 #end

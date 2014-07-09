@@ -65,8 +65,9 @@ codeNode* mathCall(int sign, codeNode *leftOperand, codeNode *rightOperand)
     node->opr.operName = NULL;
     node->opr.oper = sign;
     codeNodeList *list = listWithParam(leftOperand);
-    list = addNodeToList(list, rightOperand);
-    node->opr.params = list;
+    if (rightOperand)
+        list = addNodeToList(list, rightOperand);
+    node->opr.params = list->first;
     return node;
 }
 

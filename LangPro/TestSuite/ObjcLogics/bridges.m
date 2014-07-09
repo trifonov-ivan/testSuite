@@ -52,7 +52,8 @@ NSArray* arrayFromCodeNodeList(codeNodeList* array,TestCase *test)
         return nil;
     codeNodeList *list = array->first;
     NSMutableArray *result = [NSMutableArray new];
-    while (list) {
+    while (list)
+    {
         codeNode *node = list->content;
         if (node->type == typeConst)
         {
@@ -106,6 +107,20 @@ NSArray* arrayFromCodeNodeList(codeNodeList* array,TestCase *test)
                     [result addObject:resultString];
                 }
                     break;
+                default:
+                    break;
+            }
+        }
+        else if (node->type == typeFunc) //mathematical value
+        {
+            switch (node->opr.calcResult.type) {
+                case constInt:
+                    [result addObject:@(node->opr.calcResult.intVal)];
+                    break;
+                case constDouble:
+                    [result addObject:@(node->opr.calcResult.dblVal)];
+                    break;
+                    
                 default:
                     break;
             }

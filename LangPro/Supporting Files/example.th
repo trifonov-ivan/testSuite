@@ -13,5 +13,5 @@ initTestSuite()
         thirdTest()
             ->fourthTest()
     }
-
+mathTest()
 #end

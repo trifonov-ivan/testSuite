@@ -31,6 +31,8 @@ strliteral  \"[^"]*{escquote}*\"
 
 "->"            return *yytext;
 
+"NOT"           return NOT;
+
 {float}         {
                     tclval.doubleValue = atof(yytext);
                     return DOUBLE;

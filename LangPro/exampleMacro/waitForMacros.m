@@ -28,7 +28,6 @@
     sem = dispatch_semaphore_create(0);
     dispatch_time_t timeout = self.timeout.doubleValue*NSEC_PER_SEC;
     dispatch_semaphore_wait(sem, dispatch_time(DISPATCH_TIME_NOW, timeout));
-
     if (!ended)
     {
         TCLog(@"FAILED:(Timeout) %@",self.failMessage);

@@ -11,6 +11,7 @@
 #include "bridges.h"
 
 void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success);
+void *processMathCodeNode(codeNode *node, TestCase *test, bool *success);
 
 codeNodeList* processParamList(codeNodeList* node, TestCase *test, bool *success)
 {
@@ -68,8 +69,7 @@ void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
                 return runMacros(macro, preParams, success, test);
             } else
             {
-                //TODO mathematical evaluations
-                TCLog(@"Math");
+                return processMathCodeNode(node, test, success);
             }
         }
             break;
@@ -89,10 +89,114 @@ void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success)
     return NULL;
 }
 
+codeNode *mathCodeNodeFromCodeNode(codeNode *source, TestCase *test, bool *success)
+{
+    codeNode *node = (codeNode*)malloc(sizeof(codeNode));
+    node->type = typeFunc;
+    node->opr.operName = NULL;
+    node->opr.params = NULL;
+    node->opr.calcResult = ((codeNode*)processOperationalCodeNode(source,test, success))->con;
+    return node;
+}
+
+double val(codeNode* node)
+{
+    switch (node->opr.calcResult.type) {
+        case constInt:
+            return node->opr.calcResult.intVal;
+            break;
+        case constDouble:
+            return node->opr.calcResult.intVal;
+            break;
+        case constString:
+            return 1;
+            break;
+            
+        default:
+            break;
+    }
+}
+
 void *processMathCodeNode(codeNode *node, TestCase *test, bool *success)
 {
-    //TODO
-    return NULL;
+    if (!node || node->type != typeFunc || node->opr.operName)
+        return mathCodeNodeFromCodeNode(node,test,success);
+
+    if (!node->opr.params)
+        return node;
+    
+    codeNodeList *operand = node->opr.params->first;
+    
+    codeNode *left = processMathCodeNode(operand->content, test, success);
+    codeNode *right = NULL;
+    if (operand -> next)
+        right = processMathCodeNode(operand->next->content, test, success);
+    
+    double result = 0;
+    
+    switch (node->opr.oper) {
+        case signNOT:
+            result = !val(left);
+            break;
+        case signPLUS:
+            result = val(left) + val(right);
+            break;
+        case signEQ:
+        {
+            if (left->opr.calcResult.type != constString)
+            {
+                result = (val(left) == val(right));
+            }
+            else
+            {
+                result = !(strncmp(left->opr.calcResult.stringVal, right->opr.calcResult.stringVal,100));
+            }
+        }
+            break;
+        case signLE:
+            result = (val(left) <= val(right));
+            break;
+        case signLT:
+            result = val(left) < val(right);
+            break;
+        case signMT:
+            result = val(left) > val(right);
+            break;
+        case signME:
+            result = val(left) >= val(right);
+            break;
+        case signAND:
+            result = val(left) && val(right);
+            break;
+        case signOR:
+            result = val(left) || val(right);
+            break;
+        case signMINUS:
+            result = val(left) - val(right);
+            break;
+        case signMULTIPLY:
+            result = val(left) * val(right);
+            break;
+        case signDIVIDE:
+            result = val(left) / val(right);
+            break;
+
+        default:
+            break;
+    }
+    if (left->opr.calcResult.type == constInt || left->opr.calcResult.type == constString)
+    {
+        node->opr.calcResult.type = constInt;
+        node->opr.calcResult.intVal = result;
+    }
+
+    if (left->opr.calcResult.type == constDouble)
+    {
+        node->opr.calcResult.type = constDouble;
+        node->opr.calcResult.dblVal = result;
+    }
+    
+    return node;
 }
 
 bool processRow(codeNode* row, TestCase *test)

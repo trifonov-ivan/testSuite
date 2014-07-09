@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		200A7F56196C3C54005B0C01 /* randomStringMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A7F55196C3C54005B0C01 /* randomStringMacro.m */; };
 		200A7F5B196D3890005B0C01 /* FailMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A7F5A196D3890005B0C01 /* FailMacros.m */; };
+		200A7F5E196D645A005B0C01 /* FailOnMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A7F5D196D645A005B0C01 /* FailOnMacros.m */; };
 		20311A08196ACD1C001A67C2 /* testTestSuite.tc in Resources */ = {isa = PBXBuildFile; fileRef = 20311A07196ACD1C001A67C2 /* testTestSuite.tc */; };
 		20311A12196BE0DB001A67C2 /* TestHierarchyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A11196BE0DB001A67C2 /* TestHierarchyObject.m */; };
 		20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 20311A14196BE0E3001A67C2 /* TestClassObject.m */; };
@@ -67,6 +68,8 @@
 		200A7F55196C3C54005B0C01 /* randomStringMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = randomStringMacro.m; sourceTree = "<group>"; };
 		200A7F59196D3890005B0C01 /* FailMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailMacros.h; sourceTree = "<group>"; };
 		200A7F5A196D3890005B0C01 /* FailMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailMacros.m; sourceTree = "<group>"; };
+		200A7F5C196D645A005B0C01 /* FailOnMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailOnMacros.h; sourceTree = "<group>"; };
+		200A7F5D196D645A005B0C01 /* FailOnMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnMacros.m; sourceTree = "<group>"; };
 		20311A07196ACD1C001A67C2 /* testTestSuite.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testTestSuite.tc; sourceTree = "<group>"; };
 		20311A10196BE0DB001A67C2 /* TestHierarchyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHierarchyObject.h; sourceTree = "<group>"; };
 		20311A11196BE0DB001A67C2 /* TestHierarchyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHierarchyObject.m; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				20311A2A196C056A001A67C2 /* waitForMacros.m */,
 				200A7F54196C3C54005B0C01 /* randomStringMacro.h */,
 				200A7F55196C3C54005B0C01 /* randomStringMacro.m */,
+				200A7F5C196D645A005B0C01 /* FailOnMacros.h */,
+				200A7F5D196D645A005B0C01 /* FailOnMacros.m */,
 				20311A2C196C0582001A67C2 /* TimeOutDecorator.h */,
 				20311A2D196C0582001A67C2 /* TimeOutDecorator.m */,
 				20311A2F196C059D001A67C2 /* FailSignalsDecorator.h */,
@@ -455,6 +460,7 @@
 				200A7F5B196D3890005B0C01 /* FailMacros.m in Sources */,
 				20311A15196BE0E3001A67C2 /* TestClassObject.m in Sources */,
 				209BA192196334CE00B304DE /* testHierarchyLang.ym in Sources */,
+				200A7F5E196D645A005B0C01 /* FailOnMacros.m in Sources */,
 				20311A18196BEEFF001A67C2 /* TestExecutor.m in Sources */,
 				20311A28196C054D001A67C2 /* SendMacros.m in Sources */,
 				209BA1971963351800B304DE /* thlGrammarLogics.m in Sources */,

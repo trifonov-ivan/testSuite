@@ -15,7 +15,7 @@ typedef enum { typeFunc, typeConst, typeVariable, typeOpts} nodeEnum;
 
 typedef enum { constInt, constDouble, constString} constType;
 
-typedef enum { signLT, signMT, signLE, signME, signEQ, signAND, signOR, signMINUS, signPLUS, signMULTIPLY, signDIVIDE, signSET } signEnum;
+typedef enum { signLT, signMT, signLE, signME, signEQ, signAND, signOR, signMINUS, signPLUS, signMULTIPLY, signDIVIDE, signSET, signNOT } signEnum;
 
 typedef enum { listOfNodes, listOfLists } listTypeEnum;
 
@@ -39,6 +39,7 @@ typedef struct {
     int oper;                       /* operator */
     char *operName;                 /* function name */
     struct codeNodeListTag *params; /*parameters to calculate */
+    conNodeType calcResult;
 } oprNodeType;
 
 /* operators */
