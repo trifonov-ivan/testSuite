@@ -9,7 +9,7 @@
 #import "TestExecutor.h"
 #import "TestManager.h"
 #import "TestMacros.h"
-#import "waitForMacros.h"
+#import "WaitForMacros.h"
 
 @interface VariableEntry : NSObject
 @property (nonatomic, strong) NSString *name;
@@ -35,7 +35,7 @@ static TestExecutor *executor = nil;
 {
     NSMutableDictionary *variableMap;
 /*this is the only macros that can wait signals from app */
-    waitForMacros *waitingMacros;
+    WaitForMacros *waitingMacros;
 }
 @end
 
@@ -117,8 +117,8 @@ static TestExecutor *executor = nil;
 
 -(id) runTestMacros:(TestMacros*)macros withParams:(NSArray*)params success:(BOOL*)success
 {
-    if ([macros isKindOfClass:[waitForMacros class]])
-        waitingMacros = (waitForMacros*)macros;
+    if ([macros isKindOfClass:[WaitForMacros class]])
+        waitingMacros = (WaitForMacros*)macros;
     
     id val = [macros executeWithParams:params success:success];
     waitingMacros = nil;

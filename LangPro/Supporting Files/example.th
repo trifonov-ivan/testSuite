@@ -7,8 +7,8 @@ initTestSuite()
             ->anyTest()
             ->(){
                 someTest(12,"abs")
-                someAnotherTest()
             }
+        someAnotherTest()
         secondTest()
         thirdTest()
             ->fourthTest()

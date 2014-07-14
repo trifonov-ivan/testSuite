@@ -1,0 +1,692 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2044C3AF1973C12500C003FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2044C3AE1973C12500C003FF /* Foundation.framework */; };
+		2044C3BD1973C12500C003FF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2044C3BC1973C12500C003FF /* XCTest.framework */; };
+		2044C3BE1973C12500C003FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2044C3AE1973C12500C003FF /* Foundation.framework */; };
+		2044C3C31973C12500C003FF /* libLangPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2044C3AB1973C12500C003FF /* libLangPro.a */; };
+		2044C4121973DC3D00C003FF /* FailOnMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DB1973DC3D00C003FF /* FailOnMacros.m */; };
+		2044C4131973DC3D00C003FF /* FailSignalsDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DD1973DC3D00C003FF /* FailSignalsDecorator.m */; };
+		2044C4141973DC3D00C003FF /* LogMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DF1973DC3D00C003FF /* LogMacros.m */; };
+		2044C4151973DC3D00C003FF /* OnFailDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E11973DC3D00C003FF /* OnFailDecorator.m */; };
+		2044C4161973DC3D00C003FF /* SuccessOnMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E31973DC3D00C003FF /* SuccessOnMacros.m */; };
+		2044C4171973DC3D00C003FF /* TimeOutDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E51973DC3D00C003FF /* TimeOutDecorator.m */; };
+		2044C4181973DC3D00C003FF /* WaitForMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E71973DC3D00C003FF /* WaitForMacros.m */; };
+		2044C4191973DC3D00C003FF /* FailMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3EA1973DC3D00C003FF /* FailMacros.m */; };
+		2044C41A1973DC3D00C003FF /* randomStringMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3EC1973DC3D00C003FF /* randomStringMacro.m */; };
+		2044C41B1973DC3D00C003FF /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F01973DC3D00C003FF /* builders.m */; };
+		2044C41C1973DC3D00C003FF /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F31973DC3D00C003FF /* commonLogics.m */; };
+		2044C41D1973DC3D00C003FF /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F51973DC3D00C003FF /* executors.m */; };
+		2044C41E1973DC3D00C003FF /* bridges.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F81973DC3D00C003FF /* bridges.m */; };
+		2044C41F1973DC3D00C003FF /* TestClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FA1973DC3D00C003FF /* TestClassObject.m */; };
+		2044C4201973DC3D00C003FF /* TestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FC1973DC3D00C003FF /* TestExecutor.m */; };
+		2044C4211973DC3D00C003FF /* TestHierarchyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FE1973DC3D00C003FF /* TestHierarchyObject.m */; };
+		2044C4221973DC3D00C003FF /* TestMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4001973DC3D00C003FF /* TestMacros.m */; };
+		2044C4231973DC3D00C003FF /* TestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4021973DC3D00C003FF /* TestManager.m */; };
+		2044C4241973DC3D00C003FF /* TestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4041973DC3D00C003FF /* TestReader.m */; };
+		2044C4251973DC3D00C003FF /* tclGrammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4071973DC3D00C003FF /* tclGrammarLogics.m */; };
+		2044C4261973DC3D00C003FF /* testCaseLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4081973DC3D00C003FF /* testCaseLang.lm */; };
+		2044C4271973DC3D00C003FF /* testCaseLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4091973DC3D00C003FF /* testCaseLang.ym */; };
+		2044C4281973DC3D00C003FF /* testHierarchyLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40B1973DC3D00C003FF /* testHierarchyLang.lm */; };
+		2044C4291973DC3D00C003FF /* testHierarchyLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40C1973DC3D00C003FF /* testHierarchyLang.ym */; };
+		2044C42A1973DC3D00C003FF /* thlGrammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40E1973DC3D00C003FF /* thlGrammarLogics.m */; };
+		2044C42B1973DC3D00C003FF /* getSubclasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4111973DC3D00C003FF /* getSubclasses.m */; };
+		2044C42F1973DC5B00C003FF /* exampleLaunch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C42E1973DC5B00C003FF /* exampleLaunch.m */; };
+		2044C4301973EBE500C003FF /* FailOnMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DB1973DC3D00C003FF /* FailOnMacros.m */; };
+		2044C4311973EBE500C003FF /* FailSignalsDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DD1973DC3D00C003FF /* FailSignalsDecorator.m */; };
+		2044C4321973EBE500C003FF /* LogMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3DF1973DC3D00C003FF /* LogMacros.m */; };
+		2044C4331973EBE500C003FF /* OnFailDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E11973DC3D00C003FF /* OnFailDecorator.m */; };
+		2044C4341973EBE500C003FF /* SuccessOnMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E31973DC3D00C003FF /* SuccessOnMacros.m */; };
+		2044C4351973EBE500C003FF /* TimeOutDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E51973DC3D00C003FF /* TimeOutDecorator.m */; };
+		2044C4361973EBE500C003FF /* WaitForMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3E71973DC3D00C003FF /* WaitForMacros.m */; };
+		2044C4371973EBE500C003FF /* FailMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3EA1973DC3D00C003FF /* FailMacros.m */; };
+		2044C4381973EBE500C003FF /* randomStringMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3EC1973DC3D00C003FF /* randomStringMacro.m */; };
+		2044C4391973EBEB00C003FF /* builders.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F01973DC3D00C003FF /* builders.m */; };
+		2044C43A1973EBEE00C003FF /* commonLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F31973DC3D00C003FF /* commonLogics.m */; };
+		2044C43B1973EBF000C003FF /* executors.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F51973DC3D00C003FF /* executors.m */; };
+		2044C43C1973EBF400C003FF /* bridges.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3F81973DC3D00C003FF /* bridges.m */; };
+		2044C43D1973EBF600C003FF /* TestClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FA1973DC3D00C003FF /* TestClassObject.m */; };
+		2044C43E1973EBF800C003FF /* TestExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FC1973DC3D00C003FF /* TestExecutor.m */; };
+		2044C43F1973EBF900C003FF /* TestHierarchyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C3FE1973DC3D00C003FF /* TestHierarchyObject.m */; };
+		2044C4401973EBFB00C003FF /* TestMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4001973DC3D00C003FF /* TestMacros.m */; };
+		2044C4411973EBFE00C003FF /* TestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4021973DC3D00C003FF /* TestManager.m */; };
+		2044C4421973EC0000C003FF /* TestReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4041973DC3D00C003FF /* TestReader.m */; };
+		2044C4431973EC0400C003FF /* tclGrammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4071973DC3D00C003FF /* tclGrammarLogics.m */; };
+		2044C4441973EC0700C003FF /* testCaseLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4081973DC3D00C003FF /* testCaseLang.lm */; };
+		2044C4451973EC0A00C003FF /* testCaseLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4091973DC3D00C003FF /* testCaseLang.ym */; };
+		2044C4461973EC0F00C003FF /* testHierarchyLang.ym in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40C1973DC3D00C003FF /* testHierarchyLang.ym */; };
+		2044C4471973EC1100C003FF /* testHierarchyLang.lm in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40B1973DC3D00C003FF /* testHierarchyLang.lm */; };
+		2044C4481973EC1600C003FF /* thlGrammarLogics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C40E1973DC3D00C003FF /* thlGrammarLogics.m */; };
+		2044C4491973EC1C00C003FF /* getSubclasses.m in Sources */ = {isa = PBXBuildFile; fileRef = 2044C4111973DC3D00C003FF /* getSubclasses.m */; };
+		2044C4541973EC6000C003FF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2044C44B1973EC6000C003FF /* InfoPlist.strings */; };
+		2044C4551973EC6000C003FF /* example.tc in Resources */ = {isa = PBXBuildFile; fileRef = 2044C44D1973EC6000C003FF /* example.tc */; };
+		2044C4561973EC6000C003FF /* example.th in Resources */ = {isa = PBXBuildFile; fileRef = 2044C44E1973EC6000C003FF /* example.th */; };
+		2044C4571973EC6000C003FF /* fastLogin.tc in Resources */ = {isa = PBXBuildFile; fileRef = 2044C44F1973EC6000C003FF /* fastLogin.tc */; };
+		2044C4581973EC6000C003FF /* LangPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2044C4501973EC6000C003FF /* LangPro-Info.plist */; };
+		2044C45A1973EC6000C003FF /* testTestSuite.tc in Resources */ = {isa = PBXBuildFile; fileRef = 2044C4531973EC6000C003FF /* testTestSuite.tc */; };
+		2044C45C1973EE7500C003FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2044C45B1973EE7500C003FF /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2044C3C11973C12500C003FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2044C3A31973C12500C003FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2044C3AA1973C12500C003FF;
+			remoteInfo = ExtTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2044C3A91973C12500C003FF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2044C3AB1973C12500C003FF /* libLangPro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLangPro.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2044C3AE1973C12500C003FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2044C3BB1973C12500C003FF /* ExtTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExtTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2044C3BC1973C12500C003FF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2044C3DA1973DC3D00C003FF /* FailOnMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailOnMacros.h; sourceTree = "<group>"; };
+		2044C3DB1973DC3D00C003FF /* FailOnMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailOnMacros.m; sourceTree = "<group>"; };
+		2044C3DC1973DC3D00C003FF /* FailSignalsDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailSignalsDecorator.h; sourceTree = "<group>"; };
+		2044C3DD1973DC3D00C003FF /* FailSignalsDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailSignalsDecorator.m; sourceTree = "<group>"; };
+		2044C3DE1973DC3D00C003FF /* LogMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogMacros.h; sourceTree = "<group>"; };
+		2044C3DF1973DC3D00C003FF /* LogMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogMacros.m; sourceTree = "<group>"; };
+		2044C3E01973DC3D00C003FF /* OnFailDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnFailDecorator.h; sourceTree = "<group>"; };
+		2044C3E11973DC3D00C003FF /* OnFailDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnFailDecorator.m; sourceTree = "<group>"; };
+		2044C3E21973DC3D00C003FF /* SuccessOnMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessOnMacros.h; sourceTree = "<group>"; };
+		2044C3E31973DC3D00C003FF /* SuccessOnMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessOnMacros.m; sourceTree = "<group>"; };
+		2044C3E41973DC3D00C003FF /* TimeOutDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeOutDecorator.h; sourceTree = "<group>"; };
+		2044C3E51973DC3D00C003FF /* TimeOutDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOutDecorator.m; sourceTree = "<group>"; };
+		2044C3E61973DC3D00C003FF /* WaitForMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitForMacros.h; sourceTree = "<group>"; };
+		2044C3E71973DC3D00C003FF /* WaitForMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitForMacros.m; sourceTree = "<group>"; };
+		2044C3E91973DC3D00C003FF /* FailMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FailMacros.h; sourceTree = "<group>"; };
+		2044C3EA1973DC3D00C003FF /* FailMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailMacros.m; sourceTree = "<group>"; };
+		2044C3EB1973DC3D00C003FF /* randomStringMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = randomStringMacro.h; sourceTree = "<group>"; };
+		2044C3EC1973DC3D00C003FF /* randomStringMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = randomStringMacro.m; sourceTree = "<group>"; };
+		2044C3EF1973DC3D00C003FF /* builders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = builders.h; sourceTree = "<group>"; };
+		2044C3F01973DC3D00C003FF /* builders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = builders.m; sourceTree = "<group>"; };
+		2044C3F11973DC3D00C003FF /* codeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codeNode.h; sourceTree = "<group>"; };
+		2044C3F21973DC3D00C003FF /* commonLogics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commonLogics.h; sourceTree = "<group>"; };
+		2044C3F31973DC3D00C003FF /* commonLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commonLogics.m; sourceTree = "<group>"; };
+		2044C3F41973DC3D00C003FF /* executors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = executors.h; sourceTree = "<group>"; };
+		2044C3F51973DC3D00C003FF /* executors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = executors.m; sourceTree = "<group>"; };
+		2044C3F71973DC3D00C003FF /* bridges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridges.h; sourceTree = "<group>"; };
+		2044C3F81973DC3D00C003FF /* bridges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bridges.m; sourceTree = "<group>"; };
+		2044C3F91973DC3D00C003FF /* TestClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClassObject.h; sourceTree = "<group>"; };
+		2044C3FA1973DC3D00C003FF /* TestClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClassObject.m; sourceTree = "<group>"; };
+		2044C3FB1973DC3D00C003FF /* TestExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestExecutor.h; sourceTree = "<group>"; };
+		2044C3FC1973DC3D00C003FF /* TestExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExecutor.m; sourceTree = "<group>"; };
+		2044C3FD1973DC3D00C003FF /* TestHierarchyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHierarchyObject.h; sourceTree = "<group>"; };
+		2044C3FE1973DC3D00C003FF /* TestHierarchyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHierarchyObject.m; sourceTree = "<group>"; };
+		2044C3FF1973DC3D00C003FF /* TestMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMacros.h; sourceTree = "<group>"; };
+		2044C4001973DC3D00C003FF /* TestMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMacros.m; sourceTree = "<group>"; };
+		2044C4011973DC3D00C003FF /* TestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
+		2044C4021973DC3D00C003FF /* TestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestManager.m; sourceTree = "<group>"; };
+		2044C4031973DC3D00C003FF /* TestReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestReader.h; sourceTree = "<group>"; };
+		2044C4041973DC3D00C003FF /* TestReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestReader.m; sourceTree = "<group>"; };
+		2044C4061973DC3D00C003FF /* tclGrammarLogics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tclGrammarLogics.h; sourceTree = "<group>"; };
+		2044C4071973DC3D00C003FF /* tclGrammarLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tclGrammarLogics.m; sourceTree = "<group>"; };
+		2044C4081973DC3D00C003FF /* testCaseLang.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = testCaseLang.lm; sourceTree = "<group>"; };
+		2044C4091973DC3D00C003FF /* testCaseLang.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = testCaseLang.ym; sourceTree = "<group>"; };
+		2044C40B1973DC3D00C003FF /* testHierarchyLang.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = testHierarchyLang.lm; sourceTree = "<group>"; };
+		2044C40C1973DC3D00C003FF /* testHierarchyLang.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = testHierarchyLang.ym; sourceTree = "<group>"; };
+		2044C40D1973DC3D00C003FF /* thlGrammarLogics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thlGrammarLogics.h; sourceTree = "<group>"; };
+		2044C40E1973DC3D00C003FF /* thlGrammarLogics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thlGrammarLogics.m; sourceTree = "<group>"; };
+		2044C4101973DC3D00C003FF /* getSubclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getSubclasses.h; sourceTree = "<group>"; };
+		2044C4111973DC3D00C003FF /* getSubclasses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSubclasses.m; sourceTree = "<group>"; };
+		2044C42D1973DC5B00C003FF /* exampleLaunch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exampleLaunch.h; sourceTree = "<group>"; };
+		2044C42E1973DC5B00C003FF /* exampleLaunch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = exampleLaunch.m; sourceTree = "<group>"; };
+		2044C44C1973EC6000C003FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2044C44D1973EC6000C003FF /* example.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.tc; sourceTree = "<group>"; };
+		2044C44E1973EC6000C003FF /* example.th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.th; sourceTree = "<group>"; };
+		2044C44F1973EC6000C003FF /* fastLogin.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fastLogin.tc; sourceTree = "<group>"; };
+		2044C4501973EC6000C003FF /* LangPro-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LangPro-Info.plist"; sourceTree = "<group>"; };
+		2044C4511973EC6000C003FF /* LangPro-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LangPro-Prefix.pch"; sourceTree = "<group>"; };
+		2044C4531973EC6000C003FF /* testTestSuite.tc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testTestSuite.tc; sourceTree = "<group>"; };
+		2044C45B1973EE7500C003FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2044C3A81973C12500C003FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2044C45C1973EE7500C003FF /* UIKit.framework in Frameworks */,
+				2044C3AF1973C12500C003FF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2044C3B81973C12500C003FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2044C3BD1973C12500C003FF /* XCTest.framework in Frameworks */,
+				2044C3BE1973C12500C003FF /* Foundation.framework in Frameworks */,
+				2044C3C31973C12500C003FF /* libLangPro.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2044C3A21973C12500C003FF = {
+			isa = PBXGroup;
+			children = (
+				2044C42C1973DC4900C003FF /* examples */,
+				2044C3D91973DC3D00C003FF /* builtinMacro */,
+				2044C3E81973DC3D00C003FF /* exampleMacro */,
+				2044C3ED1973DC3D00C003FF /* TestSuite */,
+				2044C3AD1973C12500C003FF /* Frameworks */,
+				2044C3AC1973C12500C003FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2044C3AC1973C12500C003FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3AB1973C12500C003FF /* libLangPro.a */,
+				2044C3BB1973C12500C003FF /* ExtTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2044C3AD1973C12500C003FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2044C45B1973EE7500C003FF /* UIKit.framework */,
+				2044C3AE1973C12500C003FF /* Foundation.framework */,
+				2044C3BC1973C12500C003FF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2044C3D91973DC3D00C003FF /* builtinMacro */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3DA1973DC3D00C003FF /* FailOnMacros.h */,
+				2044C3DB1973DC3D00C003FF /* FailOnMacros.m */,
+				2044C3DC1973DC3D00C003FF /* FailSignalsDecorator.h */,
+				2044C3DD1973DC3D00C003FF /* FailSignalsDecorator.m */,
+				2044C3DE1973DC3D00C003FF /* LogMacros.h */,
+				2044C3DF1973DC3D00C003FF /* LogMacros.m */,
+				2044C3E01973DC3D00C003FF /* OnFailDecorator.h */,
+				2044C3E11973DC3D00C003FF /* OnFailDecorator.m */,
+				2044C3E21973DC3D00C003FF /* SuccessOnMacros.h */,
+				2044C3E31973DC3D00C003FF /* SuccessOnMacros.m */,
+				2044C3E41973DC3D00C003FF /* TimeOutDecorator.h */,
+				2044C3E51973DC3D00C003FF /* TimeOutDecorator.m */,
+				2044C3E61973DC3D00C003FF /* WaitForMacros.h */,
+				2044C3E71973DC3D00C003FF /* WaitForMacros.m */,
+			);
+			name = builtinMacro;
+			path = LangPro/builtinMacro;
+			sourceTree = "<group>";
+		};
+		2044C3E81973DC3D00C003FF /* exampleMacro */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3E91973DC3D00C003FF /* FailMacros.h */,
+				2044C3EA1973DC3D00C003FF /* FailMacros.m */,
+				2044C3EB1973DC3D00C003FF /* randomStringMacro.h */,
+				2044C3EC1973DC3D00C003FF /* randomStringMacro.m */,
+			);
+			name = exampleMacro;
+			path = LangPro/exampleMacro;
+			sourceTree = "<group>";
+		};
+		2044C3ED1973DC3D00C003FF /* TestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3EE1973DC3D00C003FF /* commonLogics */,
+				2044C3F61973DC3D00C003FF /* ObjcLogics */,
+				2044C4051973DC3D00C003FF /* testCaseLang */,
+				2044C40A1973DC3D00C003FF /* testHierarchyLang */,
+				2044C40F1973DC3D00C003FF /* utils */,
+				2044C44A1973EC6000C003FF /* Supporting Files */,
+			);
+			name = TestSuite;
+			path = LangPro/TestSuite;
+			sourceTree = "<group>";
+		};
+		2044C3EE1973DC3D00C003FF /* commonLogics */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3EF1973DC3D00C003FF /* builders.h */,
+				2044C3F01973DC3D00C003FF /* builders.m */,
+				2044C3F11973DC3D00C003FF /* codeNode.h */,
+				2044C3F21973DC3D00C003FF /* commonLogics.h */,
+				2044C3F31973DC3D00C003FF /* commonLogics.m */,
+				2044C3F41973DC3D00C003FF /* executors.h */,
+				2044C3F51973DC3D00C003FF /* executors.m */,
+			);
+			path = commonLogics;
+			sourceTree = "<group>";
+		};
+		2044C3F61973DC3D00C003FF /* ObjcLogics */ = {
+			isa = PBXGroup;
+			children = (
+				2044C3F71973DC3D00C003FF /* bridges.h */,
+				2044C3F81973DC3D00C003FF /* bridges.m */,
+				2044C3F91973DC3D00C003FF /* TestClassObject.h */,
+				2044C3FA1973DC3D00C003FF /* TestClassObject.m */,
+				2044C3FB1973DC3D00C003FF /* TestExecutor.h */,
+				2044C3FC1973DC3D00C003FF /* TestExecutor.m */,
+				2044C3FD1973DC3D00C003FF /* TestHierarchyObject.h */,
+				2044C3FE1973DC3D00C003FF /* TestHierarchyObject.m */,
+				2044C3FF1973DC3D00C003FF /* TestMacros.h */,
+				2044C4001973DC3D00C003FF /* TestMacros.m */,
+				2044C4011973DC3D00C003FF /* TestManager.h */,
+				2044C4021973DC3D00C003FF /* TestManager.m */,
+				2044C4031973DC3D00C003FF /* TestReader.h */,
+				2044C4041973DC3D00C003FF /* TestReader.m */,
+			);
+			path = ObjcLogics;
+			sourceTree = "<group>";
+		};
+		2044C4051973DC3D00C003FF /* testCaseLang */ = {
+			isa = PBXGroup;
+			children = (
+				2044C4061973DC3D00C003FF /* tclGrammarLogics.h */,
+				2044C4071973DC3D00C003FF /* tclGrammarLogics.m */,
+				2044C4081973DC3D00C003FF /* testCaseLang.lm */,
+				2044C4091973DC3D00C003FF /* testCaseLang.ym */,
+			);
+			path = testCaseLang;
+			sourceTree = "<group>";
+		};
+		2044C40A1973DC3D00C003FF /* testHierarchyLang */ = {
+			isa = PBXGroup;
+			children = (
+				2044C40B1973DC3D00C003FF /* testHierarchyLang.lm */,
+				2044C40C1973DC3D00C003FF /* testHierarchyLang.ym */,
+				2044C40D1973DC3D00C003FF /* thlGrammarLogics.h */,
+				2044C40E1973DC3D00C003FF /* thlGrammarLogics.m */,
+			);
+			path = testHierarchyLang;
+			sourceTree = "<group>";
+		};
+		2044C40F1973DC3D00C003FF /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2044C4101973DC3D00C003FF /* getSubclasses.h */,
+				2044C4111973DC3D00C003FF /* getSubclasses.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		2044C42C1973DC4900C003FF /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				2044C42D1973DC5B00C003FF /* exampleLaunch.h */,
+				2044C42E1973DC5B00C003FF /* exampleLaunch.m */,
+			);
+			name = examples;
+			sourceTree = "<group>";
+		};
+		2044C44A1973EC6000C003FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2044C44B1973EC6000C003FF /* InfoPlist.strings */,
+				2044C44D1973EC6000C003FF /* example.tc */,
+				2044C44E1973EC6000C003FF /* example.th */,
+				2044C44F1973EC6000C003FF /* fastLogin.tc */,
+				2044C4501973EC6000C003FF /* LangPro-Info.plist */,
+				2044C4511973EC6000C003FF /* LangPro-Prefix.pch */,
+				2044C4531973EC6000C003FF /* testTestSuite.tc */,
+			);
+			name = "Supporting Files";
+			path = "LangPro/Supporting Files";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2044C3AA1973C12500C003FF /* LangPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2044C3CE1973C12500C003FF /* Build configuration list for PBXNativeTarget "LangPro" */;
+			buildPhases = (
+				2044C3A71973C12500C003FF /* Sources */,
+				2044C3A81973C12500C003FF /* Frameworks */,
+				2044C3A91973C12500C003FF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LangPro;
+			productName = ExtTest;
+			productReference = 2044C3AB1973C12500C003FF /* libLangPro.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2044C3BA1973C12500C003FF /* ExtTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2044C3D11973C12500C003FF /* Build configuration list for PBXNativeTarget "ExtTestTests" */;
+			buildPhases = (
+				2044C3B71973C12500C003FF /* Sources */,
+				2044C3B81973C12500C003FF /* Frameworks */,
+				2044C3B91973C12500C003FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2044C3C21973C12500C003FF /* PBXTargetDependency */,
+			);
+			name = ExtTestTests;
+			productName = ExtTestTests;
+			productReference = 2044C3BB1973C12500C003FF /* ExtTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2044C3A31973C12500C003FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Ivan Trifonov";
+			};
+			buildConfigurationList = 2044C3A61973C12500C003FF /* Build configuration list for PBXProject "ExtTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2044C3A21973C12500C003FF;
+			productRefGroup = 2044C3AC1973C12500C003FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2044C3AA1973C12500C003FF /* LangPro */,
+				2044C3BA1973C12500C003FF /* ExtTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2044C3B91973C12500C003FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2044C4571973EC6000C003FF /* fastLogin.tc in Resources */,
+				2044C45A1973EC6000C003FF /* testTestSuite.tc in Resources */,
+				2044C4561973EC6000C003FF /* example.th in Resources */,
+				2044C4541973EC6000C003FF /* InfoPlist.strings in Resources */,
+				2044C4551973EC6000C003FF /* example.tc in Resources */,
+				2044C4581973EC6000C003FF /* LangPro-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2044C3A71973C12500C003FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2044C4441973EC0700C003FF /* testCaseLang.lm in Sources */,
+				2044C4451973EC0A00C003FF /* testCaseLang.ym in Sources */,
+				2044C4471973EC1100C003FF /* testHierarchyLang.lm in Sources */,
+				2044C4461973EC0F00C003FF /* testHierarchyLang.ym in Sources */,
+				2044C4391973EBEB00C003FF /* builders.m in Sources */,
+				2044C4301973EBE500C003FF /* FailOnMacros.m in Sources */,
+				2044C4311973EBE500C003FF /* FailSignalsDecorator.m in Sources */,
+				2044C4321973EBE500C003FF /* LogMacros.m in Sources */,
+				2044C43C1973EBF400C003FF /* bridges.m in Sources */,
+				2044C4331973EBE500C003FF /* OnFailDecorator.m in Sources */,
+				2044C4341973EBE500C003FF /* SuccessOnMacros.m in Sources */,
+				2044C43E1973EBF800C003FF /* TestExecutor.m in Sources */,
+				2044C43D1973EBF600C003FF /* TestClassObject.m in Sources */,
+				2044C4401973EBFB00C003FF /* TestMacros.m in Sources */,
+				2044C4411973EBFE00C003FF /* TestManager.m in Sources */,
+				2044C4421973EC0000C003FF /* TestReader.m in Sources */,
+				2044C4431973EC0400C003FF /* tclGrammarLogics.m in Sources */,
+				2044C43F1973EBF900C003FF /* TestHierarchyObject.m in Sources */,
+				2044C43A1973EBEE00C003FF /* commonLogics.m in Sources */,
+				2044C43B1973EBF000C003FF /* executors.m in Sources */,
+				2044C4351973EBE500C003FF /* TimeOutDecorator.m in Sources */,
+				2044C4361973EBE500C003FF /* WaitForMacros.m in Sources */,
+				2044C4371973EBE500C003FF /* FailMacros.m in Sources */,
+				2044C4381973EBE500C003FF /* randomStringMacro.m in Sources */,
+				2044C4481973EC1600C003FF /* thlGrammarLogics.m in Sources */,
+				2044C4491973EC1C00C003FF /* getSubclasses.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2044C3B71973C12500C003FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2044C4281973DC3D00C003FF /* testHierarchyLang.lm in Sources */,
+				2044C4291973DC3D00C003FF /* testHierarchyLang.ym in Sources */,
+				2044C41A1973DC3D00C003FF /* randomStringMacro.m in Sources */,
+				2044C42F1973DC5B00C003FF /* exampleLaunch.m in Sources */,
+				2044C4241973DC3D00C003FF /* TestReader.m in Sources */,
+				2044C41C1973DC3D00C003FF /* commonLogics.m in Sources */,
+				2044C4191973DC3D00C003FF /* FailMacros.m in Sources */,
+				2044C4231973DC3D00C003FF /* TestManager.m in Sources */,
+				2044C4161973DC3D00C003FF /* SuccessOnMacros.m in Sources */,
+				2044C4201973DC3D00C003FF /* TestExecutor.m in Sources */,
+				2044C4181973DC3D00C003FF /* WaitForMacros.m in Sources */,
+				2044C4251973DC3D00C003FF /* tclGrammarLogics.m in Sources */,
+				2044C4211973DC3D00C003FF /* TestHierarchyObject.m in Sources */,
+				2044C4151973DC3D00C003FF /* OnFailDecorator.m in Sources */,
+				2044C4271973DC3D00C003FF /* testCaseLang.ym in Sources */,
+				2044C42B1973DC3D00C003FF /* getSubclasses.m in Sources */,
+				2044C41E1973DC3D00C003FF /* bridges.m in Sources */,
+				2044C4121973DC3D00C003FF /* FailOnMacros.m in Sources */,
+				2044C4171973DC3D00C003FF /* TimeOutDecorator.m in Sources */,
+				2044C41F1973DC3D00C003FF /* TestClassObject.m in Sources */,
+				2044C4221973DC3D00C003FF /* TestMacros.m in Sources */,
+				2044C41D1973DC3D00C003FF /* executors.m in Sources */,
+				2044C41B1973DC3D00C003FF /* builders.m in Sources */,
+				2044C4141973DC3D00C003FF /* LogMacros.m in Sources */,
+				2044C4261973DC3D00C003FF /* testCaseLang.lm in Sources */,
+				2044C42A1973DC3D00C003FF /* thlGrammarLogics.m in Sources */,
+				2044C4131973DC3D00C003FF /* FailSignalsDecorator.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2044C3C21973C12500C003FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2044C3AA1973C12500C003FF /* LangPro */;
+			targetProxy = 2044C3C11973C12500C003FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2044C44B1973EC6000C003FF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2044C44C1973EC6000C003FF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2044C3CC1973C12500C003FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2044C3CD1973C12500C003FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2044C3CF1973C12500C003FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ExtTest.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LangPro/Supporting Files/LangPro-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				YACCFLAGS = "-v -d -t";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
+			};
+			name = Debug;
+		};
+		2044C3D01973C12500C003FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/ExtTest.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LangPro/Supporting Files/LangPro-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				YACCFLAGS = "-v -d -t";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
+			};
+			name = Release;
+		};
+		2044C3D21973C12500C003FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ExtTest/ExtTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ExtTestTests/ExtTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2044C3D31973C12500C003FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ExtTest/ExtTest-Prefix.pch";
+				INFOPLIST_FILE = "ExtTestTests/ExtTestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2044C3A61973C12500C003FF /* Build configuration list for PBXProject "ExtTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2044C3CC1973C12500C003FF /* Debug */,
+				2044C3CD1973C12500C003FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2044C3CE1973C12500C003FF /* Build configuration list for PBXNativeTarget "LangPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2044C3CF1973C12500C003FF /* Debug */,
+				2044C3D01973C12500C003FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2044C3D11973C12500C003FF /* Build configuration list for PBXNativeTarget "ExtTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2044C3D21973C12500C003FF /* Debug */,
+				2044C3D31973C12500C003FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2044C3A31973C12500C003FF /* Project object */;
+}

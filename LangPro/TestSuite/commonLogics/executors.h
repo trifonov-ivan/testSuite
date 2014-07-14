@@ -14,4 +14,7 @@
 testExecutionState executeTestCase(TestCase *node);
 void executeTestHierarchy(TestHierarchy *node);
 
+// it may called from macroses code if we need to force finish test
+void forceTestCaseState(testExecutionState state);
+
 #endif

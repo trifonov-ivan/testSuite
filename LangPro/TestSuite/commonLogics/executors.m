@@ -13,6 +13,8 @@
 void *processOperationalCodeNode(codeNode* node, TestCase *test, bool *success);
 void *processMathCodeNode(codeNode *node, TestCase *test, bool *success);
 
+static testExecutionState forceState = TEST_STATE_NOT_RUNNED;
+
 codeNodeList* processParamList(codeNodeList* node, TestCase *test, bool *success)
 {
     if (!node)
@@ -283,9 +285,20 @@ testExecutionState executeTestCase(TestCase *node)
         codeNode *row = expr->content;
         if (!processRow(row, node))
             return TEST_STATE_FAILED;
+        if (forceState != TEST_STATE_NOT_RUNNED)
+        {
+            testExecutionState returnState = forceState;
+            forceState = TEST_STATE_NOT_RUNNED;
+            return returnState;
+        }
         expr = expr->next;
     }
     return TEST_STATE_OK;
+}
+
+void forceTestCaseState(testExecutionState state)
+{
+    forceState = state;
 }
 
 void iterateOverTestHierarchy(TestHierarchy *node, TestCaseOpts opts)

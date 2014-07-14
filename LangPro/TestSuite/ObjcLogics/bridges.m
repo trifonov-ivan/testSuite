@@ -145,7 +145,6 @@ codeNode* calculationResultFromID(id data)
 
 void applyDecoratorToMacros(void*macros, char *name, codeNodeList* params, TestCase *test)
 {
-//    NSLog(@"decorating with macros %s",name);
     [[TestExecutor sharedExecutor] applyDecorator:name withParams:arrayFromCodeNodeList(params,test) toMacros:(__bridge TestMacros*)macros];
 }
 

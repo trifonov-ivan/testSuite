@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Ivan Trifonov. All rights reserved.
 //
 
-#import "waitForMacros.h"
+#import "WaitForMacros.h"
 #import "TestManager.h"
-@interface waitForMacros()
+@interface WaitForMacros()
 {
     dispatch_semaphore_t sem;
     BOOL succeeded;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation waitForMacros
+@implementation WaitForMacros
 
 -(id)executeWithParams:(NSArray *)params success:(BOOL *)success
 {

@@ -1,41 +1,39 @@
-#initTestSuite 
-
-send("load")
-
+#initTestSuite
+    send("load")
 #end
 
 
 #simpleTest val
-
-log("yes-yes #val")
-
+    log("yes-yes #val")
 #end
 
 
 #firstTest val
-/*variable = getRandomString()
-second = variable
-log(second)*/
+    /*variable = getRandomString()
+    second = variable
+    log(second)*/
 #end 
 
 
 
 
 #anyTest
-/*there is a comment*/
-send("signal")
+    /*there is a comment*/
+    send("signal")
 
-waitFor("response")->timeOut(0.2)->failSignals("signalError")->onFail("log fail")
+    waitFor("response")->timeOut(3.0)->failSignals("signalError")->onFail("log fail")
 
 #end
 
 #someTest paramA,paramB
 
-log("we have #paramA and #paramB")
+    log("we have #paramA and #paramB")
 
 #end
 
-#someAnotherTest
+#someAnotherTest /*successOn testing*/
+    successOn(1)
+    failOn(1)
 #end
 
 #secondTest
@@ -45,20 +43,22 @@ log("we have #paramA and #paramB")
 #end
 
 #fourthTest
-foo = 1 + 2
-bar = foo * 3
-failOn(bar == 9, "calculation is failed")
+
+    foo = 1 + 2
+    bar = foo * 3
+    failOn(bar == 9, "calculation is failed")
+
 #end
 
 #mathTest
-failOn(((1 + 2) < 5),"1 + 2 < 5 : false")
+    failOn(((1 + 2) < 5),"1 + 2 < 5 : false")
 
-failOn(NOT((1 + 2) > 5), "1 + 2 > 5 : true")
+    failOn(NOT((1 + 2) > 5), "1 + 2 > 5 : true")
 
-failOn(NOT("abc" == "def"), "true equality of abc and def")
+    failOn(NOT("abc" == "def"), "true equality of abc and def")
 
-failOn("abc" == "abc", "false equality of abc and abc")
+    failOn("abc" == "abc", "false equality of abc and abc")
 
-failOn(1 == 2, "compeletly wrong equality")
+    failOn(1 == 2, "compeletly wrong equality")
 
 #end

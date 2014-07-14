@@ -8,7 +8,7 @@
 
 #import "TestMacros.h"
 
-@interface waitForMacros : TestMacros
+@interface WaitForMacros : TestMacros
 
 @property (nonatomic, strong) NSArray *successSignals;
 @property (nonatomic, strong) NSNumber *timeout;

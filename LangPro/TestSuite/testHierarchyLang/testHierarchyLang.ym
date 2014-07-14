@@ -1,0 +1,89 @@
+%{
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+    #include <stdarg.h>
+    #include "codeNode.h"
+    #include "thlGrammarLogics.h"
+    
+    int thlex(void);
+    void therror(char *);
+    void thlog(char *);
+%}
+%name-prefix = "th";
+
+%union {
+    int intValue;
+    double doubleValue;
+    char *tokname;
+    codeNode *nPtr;
+    codeNodeList *nodeList;
+};
+
+%token <intValue> INTEGER
+%token <doubleValue> DOUBLE
+%token <tokname> STRING
+
+%type <nPtr> constant param options case_call
+%type <nodeList> module param_list case_call_list expr
+
+%token ERROR ARROW END_TERMINAL
+%token <tokname> NAME_TOKEN
+
+%%
+
+program:
+    alias module END_TERMINAL                   {finalizeTestHierarchy($2);}
+;
+
+alias:
+    '#' NAME_TOKEN                              {registerTestHierarchy($2);}
+;
+
+module:
+    case_call_list                              {$$ = $1;}
+;
+
+expr:
+    case_call                                   {$$ = listWithParam($1);}
+    | expr ARROW case_call                      {$$ = addNodeToList($1,$3);}
+;
+
+case_call_list: /* May be NULL */               {$$ = NULL;}
+    | case_call_list expr                       {$$ = addListToList($1,$2);}
+;
+
+case_call:
+    NAME_TOKEN '(' param_list ')'               {$$ = testCaseCall($3,$1);}
+    | '(' options ')' '{' case_call_list '}'    {$$ = arrachGroupToGroupNode($5,$2);}
+;
+
+options: /* May be NULL */                      {$$ = groupNodeWithOpts(NULL);}
+    | NAME_TOKEN                                {$$ = groupNodeWithOpts($1);}
+;
+
+param_list: /* May be NULL */                   {$$ = NULL;}
+    | param                                     {$$ = listWithParam($1);}
+    | param_list ',' param                      {$$ = addNodeToList($1,$3);}
+;
+/* we are not allow to make another test case as a param in this */
+param:
+    constant                                    {$$ = $1;}
+;
+
+constant:
+    INTEGER                                     {$$ = codeNodeForIntConstant($1);}
+    | DOUBLE                                    {$$ = codeNodeForDoubleConstant($1);}
+    | STRING                                    {$$ = codeNodeForStringConstant($1);}
+;
+
+%%
+
+void thlog(char *s) {
+    fprintf(stderr, "LOG: %s\n", s);
+}
+
+
+void therror(char *s) {
+    fprintf(stderr, "ERROR: %s\n", s);
+}
